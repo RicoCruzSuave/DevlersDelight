@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://deecnqkmxhcly"]
+
+[ext_resource type="PackedScene" uid="uid://b0xttwy55w2q7" path="res://Placeholder/entity_base.tscn" id="1_8rjpq"]
+[ext_resource type="PackedScene" uid="uid://b0kp0tei6r73j" path="res://Placeholder/enemy.tscn" id="2_8thb0"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_6v5gm"]
+script/source = "using Godot;
+using System;
+
+public partial class save_file : Resource
+{
+}
+"
+
+[node name="BattleScene" type="Node2D"]
+script = SubResource("CSharpScript_6v5gm")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_8rjpq")]
+
+[node name="Enemy" parent="." instance=ExtResource("2_8thb0")]
+position = Vector2(351, 0)
