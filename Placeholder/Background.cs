@@ -1,40 +1,81 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 public partial class Background : Node2D
 {
     [Export]
-    private int total_pieces = 2;
+    private int min_width = 400;
     [Export]
-    private bool mirrored = true;
-    private Vector2 current_offset;
+    private int max_width = 600;
     private Node2D chunk_sequence;
+    private List<Sprite2D> chunk_list = new List<Sprite2D>();
     public override void _Ready()
     {
         //Onready vars
         chunk_sequence = GetNode<Node2D>("Sequence");
-        //Initialize background pieces
-        for (int i = -total_pieces; i <= total_pieces; i++)
-        {
-            if (!mirrored && i < 0)
-            {
-                continue;
-            }
-            Sprite2D new_bg_piece = (Sprite2D)chunk_sequence.Call("get_current_node", true);
-            new_bg_piece = (Sprite2D)new_bg_piece.Duplicate();
-            AddChild(new_bg_piece);
-            new_bg_piece.Position = new Vector2(i * new_bg_piece.Texture.GetWidth(), 0);
-            new_bg_piece.Offset = this.Position;
-        }
     }
 
     public override void _Process(double delta)
     {
-        //Get all children that arent the sequence
-        var children = GetChildren()
-            .Where(child => child.Name != "Sequence")
-            .Select(child => child)
-            .ToList();
+        Position += new Vector2(10.0F, 0.0F);
+        //If empty, add a chunk
+        if (chunk_list.Count <= 0)
+        {
+            AddChunk(true);
+        }
+        //Make sure there are chunks up to the min_width 
+        var first_chunk = chunk_list.First();
+        var last_chunk = chunk_list.Last();
+        if (this.Position.DistanceTo(first_chunk.Position) < min_width)
+        {
+            AddChunk(true);
+        }
+        if (this.Position.DistanceTo(last_chunk.Position) < min_width)
+        {
+            AddChunk(false);
+        }
+        //If chunk is outside max_width, delete it
+        if (this.Position.DistanceTo(first_chunk.Position) > max_width)
+        {
+            first_chunk.Free();
+            chunk_list.RemoveAt(0);
+        }
+        if (this.Position.DistanceTo(last_chunk.Position) > max_width)
+        {
+            last_chunk.Free();
+            chunk_list.RemoveAt(chunk_list.Count - 1);
+        }
+
+    }
+
+    public void AddChunk(bool is_left_side)
+    {
+        Sprite2D new_bg_piece = (Sprite2D)chunk_sequence.Call("get_current_node", true);
+        new_bg_piece = (Sprite2D)new_bg_piece.Duplicate();
+        AddChild(new_bg_piece);
+
+
+        if (is_left_side)
+        {
+            float offset = 0.0F;
+            if (chunk_list.Count > 0)
+            {
+                offset = chunk_list.First().Texture.GetWidth() / 2 + new_bg_piece.Texture.GetWidth() / 2;
+                new_bg_piece.Position = new Vector2(chunk_list.First().Position.X - offset - 50.0F, 0);
+            }
+            chunk_list.Insert(0, new_bg_piece);
+        }
+        else
+        {
+            float offset = 0.0F;
+            if (chunk_list.Count > 0)
+            {
+                offset = chunk_list.Last().Texture.GetWidth() / 2 + new_bg_piece.Texture.GetWidth() / 2;
+                new_bg_piece.Position = new Vector2(chunk_list.Last().Position.X + offset + 50.0F, 0);
+            }
+            chunk_list.Add(new_bg_piece);
+        }
 
     }
 }
