@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b0xttwy55w2q7"]
 
 [ext_resource type="Script" path="res://Placeholder/Entity.cs" id="1_obe50"]
-[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="2_24mjk"]
+[ext_resource type="Resource" uid="uid://uee3kt56snxw" path="res://Resources/EntityCardTest.tres" id="2_iml13"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_405cg"]
 radius = 63.0317
@@ -88,12 +88,9 @@ _data = {
 
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_obe50")
-HP = 200
-attack = 2
-defense = 10
+Card = ExtResource("2_iml13")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_24mjk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_405cg")

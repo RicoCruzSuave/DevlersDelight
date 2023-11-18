@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://uee3kt56snxw"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_dlkv7"]
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_5lr3a"]
+
+[resource]
+script = ExtResource("2_5lr3a")
+MaxHP = 100
+Attack = 10
+Defense = 10
+Texture = ExtResource("1_dlkv7")
+Color = Color(1, 0, 1, 1)

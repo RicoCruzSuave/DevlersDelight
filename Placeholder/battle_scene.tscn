@@ -6,7 +6,7 @@
 
 [node name="BattleScene" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_gr5ub")]
+[node name="Entity" parent="." instance=ExtResource("1_gr5ub")]
 
 [node name="Background" parent="." instance=ExtResource("2_voq43")]
 
