@@ -23,12 +23,12 @@ enum RESOLUTION {
 func debug():
 	print(get_current_node())
 
-func get_nodes() -> Array:
+func get_all_nodes() -> Array:
 	var children : = get_children()
 	var nodes_list : = []
 	for child in children:
 		if child is Sequence:
-			nodes_list.append_array(child.get_nodes())
+			nodes_list.append_array(child.get_all_nodes())
 		nodes_list.append(child)
 	if order == ORDER.RANDOM:
 		nodes_list.shuffle()
@@ -50,8 +50,8 @@ func resolve(node : Node):
 func has_nodes() -> bool:
 	return get_child_count() > 0
 	
-func get_current_node(resolve_when_done : = false) -> Node:
-	var current_node : Node2D = get_nodes()[0]
+func get_current_node(resolve_when_done : = true) -> Node:
+	var current_node : Node2D = get_all_nodes()[0]
 	if resolve_when_done:
 		resolve(current_node)
 	return current_node

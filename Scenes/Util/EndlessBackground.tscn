@@ -41,6 +41,7 @@ min_width = 600
 max_width = 1200
 
 [node name="Sequence" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_whd4q")
 order = 1
 resolution = 3
