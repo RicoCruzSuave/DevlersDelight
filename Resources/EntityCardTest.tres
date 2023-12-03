@@ -7,6 +7,8 @@
 script = ExtResource("2_5lr3a")
 MaxHP = 100
 Attack = 10
-Defense = 10
+Defense = 1
+Dexterity = 10
+Target = 2
 Texture = ExtResource("1_dlkv7")
 Color = Color(0, 0, 1, 1)

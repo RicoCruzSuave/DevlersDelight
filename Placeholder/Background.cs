@@ -16,7 +16,7 @@ public partial class Background : Node2D
         chunk_sequence = GetNode<Node2D>("Sequence");
     }
 
-    public override async void _Process(double delta)
+    public override void _Process(double delta)
     {
         // Position += new Vector2(10.0F, 0.0F);
         //If empty, add a chunk

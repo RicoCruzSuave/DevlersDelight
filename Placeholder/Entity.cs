@@ -5,13 +5,16 @@ public partial class Entity : CharacterBody2D
 {
     [ExportGroup("Battle Stats")]
     [Export]
-    private EntityCard Card;
+    public EntityCard Card;
     [Export]
     private Resource[] StatModifiers;
+    [Export]
+    private bool IsFacingRight = true;
 
     public int CurrentHP;
     public int CurrentAttack;
     public int CurrentDefense;
+    public int CurrentDexterity;
     public Sprite2D Sprite;
     public AnimationPlayer Animation;
 
@@ -25,30 +28,54 @@ public partial class Entity : CharacterBody2D
         CurrentHP = Card.MaxHP;
         CurrentAttack = Card.Attack;
         CurrentDefense = Card.Defense;
+        CurrentDexterity = Card.Dexterity;
+
+        Label DexLabel = GetNode<Label>("Label");
+        DexLabel.Text = CurrentDexterity.ToString();
+        if (!IsFacingRight)
+        {
+            var LabelScale = DexLabel.Scale;
+            LabelScale.X = -1;
+            DexLabel.Scale = LabelScale;
+            ProgressBar HealthBar = GetNode<ProgressBar>("ProgressBar");
+            var HealthBarScale = HealthBar.Scale;
+            HealthBarScale.X = 1;
+            HealthBar.Scale = HealthBarScale;
+        }
     }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
-        CheckForDeath();
+        ProgressBar HealthBar = GetNode<ProgressBar>("ProgressBar");
+        HealthBar.Value = (float)CurrentHP / (float)Card.MaxHP;
     }
 
     public async void Attack(Entity Target)
     {
+        if (CheckForDeath()) { return; }
         Animation.Play("Attack");
         await ToSignal(Animation, AnimationPlayer.SignalName.AnimationFinished);
         Animation.PlayBackwards("Attack");
         await ToSignal(Animation, AnimationPlayer.SignalName.AnimationFinished);
-        Target.CurrentHP -= CurrentAttack - Target.CurrentDefense;
+        Target.Hit(this.CurrentAttack);
     }
 
-    public async void CheckForDeath()
+    public void Hit(int Damage)
+    {
+        CurrentHP -= Damage - CurrentDefense;
+        CheckForDeath();
+    }
+
+    public bool CheckForDeath()
     {
         if (CurrentHP <= 0)
         {
+            Animation.Stop();
             Animation.Play("Die");
-            await ToSignal(Animation, AnimationPlayer.SignalName.AnimationFinished);
-            Free();
+            Animation.AnimationFinished += (_anim_name) => Free();
+            return true;
         }
+        return false;
     }
 }

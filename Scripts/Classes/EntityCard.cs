@@ -10,6 +10,18 @@ public partial class EntityCard : Resource
     public int Attack = 10;
     [Export]
     public int Defense = 10;
+    [Export]
+    public int Dexterity = 10;
+
+    [Export]
+    public Targets Target = Targets.FIRST_ENEMY;
+    public enum Targets
+    {
+        FIRST_ENEMY,
+        FIRST_ALLY,
+        LAST_ENEMY,
+        LAST_ALLY,
+    }
 
     [ExportGroup("Visuals")]
     [Export]
