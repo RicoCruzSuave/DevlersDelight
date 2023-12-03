@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://br6ss0s25rn4h"]
+
+[ext_resource type="Script" path="res://Placeholder/UIComponents/UI_EntityCard.cs" id="1_sds6u"]
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="2_iwcmb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kf0ql"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0ne4"]
+line_spacing = 5.0
+font_size = 14
+
+[node name="EntityCard" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar")]
+custom_minimum_size = Vector2(150, 64)
+offset_right = 235.0
+offset_bottom = 89.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_sds6u")
+nameLabel = NodePath("Foreground/MarginContainer/VBoxContainer/EntityName")
+atkLabel = NodePath("Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
+defLabel = NodePath("Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
+healthbar = NodePath("Foreground/MarginContainer/VBoxContainer/HealthBar")
+
+[node name="Foreground" type="BoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EntityIcon" type="TextureRect" parent="Foreground"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_iwcmb")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Foreground"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Foreground/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="EntityName" type="Label" parent="Foreground/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Entityname
+"
+label_settings = SubResource("LabelSettings_kf0ql")
+
+[node name="HealthBar" type="TextureProgressBar" parent="Foreground/MarginContainer/VBoxContainer"]
+layout_mode = 2
+value = 9.0
+
+[node name="StatVBox" type="HBoxContainer" parent="Foreground/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ATK" type="Label" parent="Foreground/MarginContainer/VBoxContainer/StatVBox"]
+layout_mode = 2
+text = "ATK: 0"
+label_settings = SubResource("LabelSettings_p0ne4")
+
+[node name="DEF" type="Label" parent="Foreground/MarginContainer/VBoxContainer/StatVBox"]
+layout_mode = 2
+text = "DEF: 0"
+label_settings = SubResource("LabelSettings_p0ne4")
