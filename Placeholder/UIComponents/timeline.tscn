@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://1slow52mnvwl"]
+
+[ext_resource type="Script" path="res://Placeholder/UIComponents/Timeline.cs" id="1_7t0xg"]
+
+[node name="Timeline" type="Control" node_paths=PackedStringArray("slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7t0xg")
+slider = NodePath("HSlider")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
