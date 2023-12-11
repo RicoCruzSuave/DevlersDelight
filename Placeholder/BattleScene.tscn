@@ -57,23 +57,23 @@ EnemyTeamPath = NodePath("EnemyTeam")
 position = Vector2(0, -96)
 
 [node name="Player" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
-position = Vector2(-204, 144)
 Card = SubResource("Resource_0olpr")
 
 [node name="Background" parent="BattleManager/PlayerTeam/Player" instance=ExtResource("2_yrxai")]
 position = Vector2(0, 96)
 
 [node name="Camera2D" type="Camera2D" parent="BattleManager/PlayerTeam/Player/Background"]
+position = Vector2(0, -413)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Entity" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
-position = Vector2(-225, -181)
+position = Vector2(-157, 0)
 
 [node name="EnemyTeam" type="Node2D" parent="BattleManager"]
 position = Vector2(664, -96)
 
 [node name="Enemy" parent="BattleManager/EnemyTeam" instance=ExtResource("1_ptrmo")]
-position = Vector2(-327, 246)
+position = Vector2(-146, 0)
 scale = Vector2(-1, 1)
 Card = SubResource("Resource_g3683")
 IsFacingRight = false

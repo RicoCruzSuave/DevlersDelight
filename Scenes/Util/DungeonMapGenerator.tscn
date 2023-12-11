@@ -1,0 +1,159 @@
+[gd_scene load_steps=7 format=3 uid="uid://viprb0cbe4r0"]
+
+[ext_resource type="Script" path="res://Scripts/DungeonMapGenerator.cs" id="1_o60m3"]
+[ext_resource type="Script" path="res://Scripts/ConnectionNode.cs" id="2_m6cee"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1l7ud"]
+noise_type = 2
+frequency = 0.0105
+fractal_octaves = 2
+cellular_distance_function = 2
+cellular_jitter = 1.045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_28n1e"]
+noise = SubResource("FastNoiseLite_1l7ud")
+
+[sub_resource type="Shader" id="Shader_r2387"]
+code = "shader_type canvas_item;
+uniform float threshold = 0.5;
+
+void fragment() {
+	vec4 tex = texture(TEXTURE, UV);
+	if (tex.r > threshold) {
+		COLOR.rgb = vec3(1.0);
+	} else {
+		COLOR.rgb = vec3(0.0);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x27wa"]
+shader = SubResource("Shader_r2387")
+shader_parameter/threshold = 0.75
+
+[node name="DungeonMapGenerator" type="Node2D" node_paths=PackedStringArray("Lines", "TopNode")]
+script = ExtResource("1_o60m3")
+Lines = NodePath("Lines")
+TopNode = NodePath("MapPoints")
+NumberOfLayers = 5
+LayerSize = Vector2i(512, 102)
+NodesPerLayer = Vector2i(2, 3)
+tex = SubResource("NoiseTexture2D_28n1e")
+
+[node name="MapPoints" type="Node2D" parent="."]
+
+[node name="Layer0" type="Node2D" parent="MapPoints"]
+
+[node name="Layer0Marker0" type="Marker2D" parent="MapPoints/Layer0"]
+position = Vector2(100, 49)
+
+[node name="Layer0Marker1" type="Marker2D" parent="MapPoints/Layer0"]
+position = Vector2(107, 64)
+
+[node name="Layer1" type="Node2D" parent="MapPoints"]
+
+[node name="Layer1Marker0" type="Marker2D" parent="MapPoints/Layer1"]
+position = Vector2(496, 160)
+
+[node name="Layer1Marker1" type="Marker2D" parent="MapPoints/Layer1"]
+position = Vector2(476, 148)
+
+[node name="Layer2" type="Node2D" parent="MapPoints"]
+
+[node name="Layer2Marker0" type="Marker2D" parent="MapPoints/Layer2"]
+position = Vector2(167, 218)
+
+[node name="Layer2Marker1" type="Marker2D" parent="MapPoints/Layer2"]
+position = Vector2(500, 227)
+
+[node name="Layer3" type="Node2D" parent="MapPoints"]
+
+[node name="Layer3Marker0" type="Marker2D" parent="MapPoints/Layer3"]
+position = Vector2(5, 329)
+
+[node name="Layer3Marker1" type="Marker2D" parent="MapPoints/Layer3"]
+position = Vector2(46, 374)
+
+[node name="Layer4" type="Node2D" parent="MapPoints"]
+
+[node name="Layer4Marker0" type="Marker2D" parent="MapPoints/Layer4"]
+position = Vector2(320, 466)
+
+[node name="Layer4Marker1" type="Marker2D" parent="MapPoints/Layer4"]
+position = Vector2(6, 453)
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="@Line2D@129293" type="Line2D" parent="Lines"]
+points = PackedVector2Array(100, 49, 496, 160)
+width = 2.0
+
+[node name="@Line2D@129294" type="Line2D" parent="Lines"]
+points = PackedVector2Array(100, 49, 476, 148)
+width = 2.0
+
+[node name="@Line2D@129295" type="Line2D" parent="Lines"]
+points = PackedVector2Array(107, 64, 496, 160)
+width = 2.0
+
+[node name="@Line2D@129296" type="Line2D" parent="Lines"]
+points = PackedVector2Array(107, 64, 476, 148)
+width = 2.0
+
+[node name="@Line2D@129297" type="Line2D" parent="Lines"]
+points = PackedVector2Array(496, 160, 167, 218)
+width = 2.0
+
+[node name="@Line2D@129298" type="Line2D" parent="Lines"]
+points = PackedVector2Array(496, 160, 500, 227)
+width = 2.0
+
+[node name="@Line2D@129299" type="Line2D" parent="Lines"]
+points = PackedVector2Array(476, 148, 167, 218)
+width = 2.0
+
+[node name="@Line2D@129300" type="Line2D" parent="Lines"]
+points = PackedVector2Array(476, 148, 500, 227)
+width = 2.0
+
+[node name="@Line2D@129301" type="Line2D" parent="Lines"]
+points = PackedVector2Array(167, 218, 5, 329)
+width = 2.0
+
+[node name="@Line2D@129302" type="Line2D" parent="Lines"]
+points = PackedVector2Array(167, 218, 46, 374)
+width = 2.0
+
+[node name="@Line2D@129303" type="Line2D" parent="Lines"]
+points = PackedVector2Array(500, 227, 5, 329)
+width = 2.0
+
+[node name="@Line2D@129304" type="Line2D" parent="Lines"]
+points = PackedVector2Array(500, 227, 46, 374)
+width = 2.0
+
+[node name="@Line2D@129305" type="Line2D" parent="Lines"]
+points = PackedVector2Array(5, 329, 320, 466)
+width = 2.0
+
+[node name="@Line2D@129306" type="Line2D" parent="Lines"]
+points = PackedVector2Array(5, 329, 6, 453)
+width = 2.0
+
+[node name="@Line2D@129307" type="Line2D" parent="Lines"]
+points = PackedVector2Array(46, 374, 320, 466)
+width = 2.0
+
+[node name="@Line2D@129308" type="Line2D" parent="Lines"]
+points = PackedVector2Array(46, 374, 6, 453)
+width = 2.0
+
+[node name="Marker2D" type="Marker2D" parent="." node_paths=PackedStringArray("Connections")]
+script = ExtResource("2_m6cee")
+Connections = [NodePath("")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_x27wa")
+texture = SubResource("NoiseTexture2D_28n1e")
+centered = false
