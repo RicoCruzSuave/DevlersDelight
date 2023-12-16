@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bks2pkprcryru"]
+[gd_scene load_steps=8 format=3 uid="uid://bks2pkprcryru"]
 
 [ext_resource type="Script" path="res://Placeholder/PlayScreenUI.cs" id="1_sld7t"]
 [ext_resource type="PackedScene" uid="uid://deecnqkmxhcly" path="res://Placeholder/BattleScene.tscn" id="1_w48o3"]
+[ext_resource type="Texture2D" uid="uid://cierlke4lra8i" path="res://Placeholder/Assets/awesomeCavePixelArt.png" id="2_hb87c"]
 [ext_resource type="PackedScene" uid="uid://br6ss0s25rn4h" path="res://Placeholder/UIComponents/UI_EntityPreview.tscn" id="3_hef5o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_onrmc"]
@@ -29,11 +30,26 @@ regionLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VLabelContai
 sectionLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VLabelContainer/SectionLabel")
 depthLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VLabelContainer/DepthLabel")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hb87c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = -344.0
+offset_right = 572.0
+offset_bottom = 344.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 15
@@ -44,6 +60,7 @@ theme_override_constants/margin_bottom = 15
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)

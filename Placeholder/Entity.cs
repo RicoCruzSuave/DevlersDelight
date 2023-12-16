@@ -16,14 +16,17 @@ public partial class Entity : CharacterBody2D
     public int CurrentDefense;
     public int CurrentDexterity;
     public Sprite2D Sprite;
+    public AnimatedSprite2D animatedSprite;
     public AnimationPlayer Animation;
 
     public override void _Ready()
     {
         Animation = GetNode<AnimationPlayer>("AnimationPlayer");
-        Sprite = GetNode<Sprite2D>("Sprite2D");
-        Sprite.Texture = Card.Texture;
-        Sprite.SelfModulate = Card.Color;
+        //Sprite = GetNode<Sprite2D>("Sprite2D");
+        //Sprite.Texture = Card.Texture;
+        //Sprite.SelfModulate = Card.Color;
+        animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        animatedSprite.Play("idle");
 
         CurrentHP = Card.MaxHP;
         CurrentAttack = Card.Attack;
@@ -50,7 +53,14 @@ public partial class Entity : CharacterBody2D
         ProgressBar HealthBar = GetNode<ProgressBar>("ProgressBar");
         HealthBar.Value = (float)CurrentHP / (float)Card.MaxHP;
     }
-
+    public void Run()
+    {
+        animatedSprite.Play("run");
+    }
+    public void Idle()
+    {
+        animatedSprite.Play("idle");
+    }
     public async void Attack(Entity Target)
     {
         if (CheckForDeath()) { return; }

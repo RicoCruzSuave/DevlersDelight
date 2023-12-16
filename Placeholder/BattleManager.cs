@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using System.Linq;
 
 public partial class BattleManager : Node2D
@@ -34,10 +35,20 @@ public partial class BattleManager : Node2D
                 InBattle = false;
                 return;
             }
+            foreach (Entity e in PlayerTeam.GetChildren())
+            {
+                if (e.animatedSprite.Animation != "idle")
+                    e.Idle();
+            }
             BattleTurn();
         }
         else
         {
+            foreach (Entity e in PlayerTeam.GetChildren())
+            {
+                if (e.animatedSprite.Animation != "run")
+                    e.Run();
+            }
             PlayerTeam.Position += new Vector2(25.0F, 0.0F);
         }
     }

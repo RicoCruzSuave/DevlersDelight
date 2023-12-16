@@ -63,7 +63,7 @@ Card = SubResource("Resource_0olpr")
 position = Vector2(0, 96)
 
 [node name="Camera2D" type="Camera2D" parent="BattleManager/PlayerTeam/Player/Background"]
-position = Vector2(0, -413)
+position = Vector2(200, -231)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Entity" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
