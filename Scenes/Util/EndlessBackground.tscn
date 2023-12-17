@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1qdmgtjyekek"]
+[gd_scene load_steps=13 format=3 uid="uid://c1qdmgtjyekek"]
 
 [ext_resource type="Script" path="res://Placeholder/Background.cs" id="1_tt1sw"]
 [ext_resource type="Script" path="res://Scripts/Classes/Sequence.gd" id="2_whd4q"]
 [ext_resource type="Texture2D" uid="uid://crsppw711pjoq" path="res://Placeholder/Assets/Mine_Tile/BG.png" id="3_mo1km"]
+[ext_resource type="Texture2D" uid="uid://cdmt32taokaj0" path="res://Placeholder/Assets/Mine_Tile/Rock(back)1.png" id="3_tfchu"]
 
 [sub_resource type="Gradient" id="Gradient_dldc8"]
 offsets = PackedFloat32Array(1)
@@ -42,33 +43,17 @@ min_width = 600
 max_width = 1200
 
 [node name="Sequence" type="Node2D" parent="."]
-visible = false
 script = ExtResource("2_whd4q")
 order = 1
 resolution = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Sequence"]
+texture = ExtResource("3_tfchu")
 
 [node name="Background1" type="Sprite2D" parent="Sequence"]
 top_level = true
 z_index = 1
 texture = SubResource("GradientTexture2D_d64at")
-
-[node name="Background2" type="Sprite2D" parent="Sequence"]
-top_level = true
-z_index = 1
-position = Vector2(0, 64)
-texture = SubResource("GradientTexture2D_gmbtv")
-
-[node name="Background3" type="Sprite2D" parent="Sequence"]
-top_level = true
-z_index = 1
-position = Vector2(0, 128)
-texture = SubResource("GradientTexture2D_gwdwr")
-
-[node name="Background4" type="Sprite2D" parent="Sequence"]
-top_level = true
-z_index = 1
-position = Vector2(0, 192)
-texture = SubResource("GradientTexture2D_3ueds")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
@@ -93,3 +78,24 @@ texture_repeat = 1
 position = Vector2(2011, -306)
 scale = Vector2(7, 7)
 texture = ExtResource("3_mo1km")
+
+[node name="Background2" type="Sprite2D" parent="."]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 64)
+texture = SubResource("GradientTexture2D_gmbtv")
+
+[node name="Background3" type="Sprite2D" parent="."]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 128)
+texture = SubResource("GradientTexture2D_gwdwr")
+
+[node name="Background4" type="Sprite2D" parent="."]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")

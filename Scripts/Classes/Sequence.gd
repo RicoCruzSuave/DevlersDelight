@@ -22,7 +22,7 @@ enum RESOLUTION {
 
 func debug():
 	print(get_current_node())
-
+	
 func get_all_nodes() -> Array:
 	var children : = get_children()
 	var nodes_list : = []
