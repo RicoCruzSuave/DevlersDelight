@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b4l23i72alikg"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_ouots"]
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_af2lw"]
+
+[resource]
+script = ExtResource("2_af2lw")
+Name = "MonsterOne"
+MaxHP = 10
+Attack = 2
+Defense = 1
+Dexterity = 1
+Target = 0
+Texture = ExtResource("1_ouots")
+Color = Color(1, 0.0901961, 0, 1)

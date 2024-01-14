@@ -19,6 +19,7 @@ nameLabel = NodePath("Foreground/MarginContainer/VBoxContainer/EntityName")
 atkLabel = NodePath("Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
 defLabel = NodePath("Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
 healthbar = NodePath("Foreground/MarginContainer/VBoxContainer/HealthBar")
+metadata/_edit_group_ = true
 
 [node name="Foreground" type="BoxContainer" parent="."]
 layout_mode = 2

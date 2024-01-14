@@ -5,6 +5,8 @@ public partial class EntityCard : Resource
 {
     [ExportGroup("Stats")]
     [Export]
+    public string Name = "Entity";
+    [Export]
     public int MaxHP = 100;
     [Export]
     public int Attack = 10;

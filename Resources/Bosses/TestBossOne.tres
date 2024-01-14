@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b0r4kkthtvyks"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="1_5pxvr"]
+
+[resource]
+script = ExtResource("1_5pxvr")
+Name = "BossOne"
+MaxHP = 500
+Attack = 15
+Defense = 7
+Dexterity = 3
+Target = 0
+Color = Color(1, 1, 1, 1)

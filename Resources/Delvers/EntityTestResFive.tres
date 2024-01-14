@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dcvnu7yrw62sf"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_evjdo"]
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_tmjws"]
+
+[resource]
+script = ExtResource("2_tmjws")
+Name = "Amanda Rockfort"
+MaxHP = 75
+Attack = 12
+Defense = 6
+Dexterity = 7
+Target = 2
+Texture = ExtResource("1_evjdo")
+Color = Color(1, 1, 1, 1)

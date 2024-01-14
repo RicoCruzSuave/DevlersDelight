@@ -15,9 +15,9 @@ public partial class Entity : CharacterBody2D
     public int CurrentAttack;
     public int CurrentDefense;
     public int CurrentDexterity;
-    public Sprite2D Sprite;
     public AnimatedSprite2D animatedSprite;
-    public AnimationPlayer Animation;
+    public Sprite2D Sprite; //Todo: remove it in favor of AnimatedSprite2D
+    public AnimationPlayer Animation; //Todo: remove it in favor of AnimatedSprite2D
 
     public override void _Ready()
     {
