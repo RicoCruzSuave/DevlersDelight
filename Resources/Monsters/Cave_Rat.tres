@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_af2lw")
-Name = "MonsterOne"
+Name = "Cave Rat"
 MaxHP = 10
 Attack = 2
 Defense = 1

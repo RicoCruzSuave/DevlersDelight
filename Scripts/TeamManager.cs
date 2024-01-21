@@ -5,21 +5,27 @@ using System.Linq;
 
 public partial class TeamManager : Control
 {
+	private const string DELVER_RESOURCE_PATH = "res://Resources/Delvers";
+
+
+
 	[ExportGroup("Dependencies")]
 	[Export] private ItemList availableMembers, selectedMembers;
 	[Export] private Label teamcap, available , delverName, delverATK, delverDEF, delverDTX, delverHP;
 	[Export] private TextureRect delverIcon;
+	[Export] private Player player;
 
-
-	private const string DELVER_RESOURCE_PATH = "res://Resources/Delvers";
+	private ButtonManager bm;
+	
 	private List<EntityCard> availableDelvers, teamComposition;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		bm = GetTree().Root.GetNode<ButtonManager>("GameManager/ButtonManager");
 		availableDelvers = LoadEntitiesFromDirectory(DELVER_RESOURCE_PATH);
 		foreach(EntityCard card in availableDelvers)
 		{
-			GD.Print(card.Name);
+			//GD.Print(card.Name);
 			availableMembers.AddItem(card.Name, card.Texture);
 		}
 		teamComposition = new List<EntityCard>();
@@ -111,10 +117,10 @@ public partial class TeamManager : Control
 		delverIcon.Texture = cardData.Texture;
 		delverName.Text = cardData.Name;
 		//?? is just cosmetic and can be removed if you want.
-		delverHP.Text = "Max Health: " + (cardData.MaxHP < 998 ? cardData.MaxHP.ToString() : "??");
-		delverATK.Text = "ATK: " + (cardData.Attack < 98 ? cardData.Attack.ToString() : "??");
-		delverDEF.Text = "DEF: " + (cardData.Defense  < 98 ? cardData.Defense.ToString() : "??");
-		delverDTX.Text = "DTX: " + (cardData.Dexterity  < 98 ? cardData.Dexterity.ToString() : "??");
+		delverHP.Text = "Max Health: " + (cardData.MaxHP <= 999 ? cardData.MaxHP.ToString() : "??");
+		delverATK.Text = "ATK: " + (cardData.Attack <= 99 ? cardData.Attack.ToString() : "??");
+		delverDEF.Text = "DEF: " + (cardData.Defense  <= 99 ? cardData.Defense.ToString() : "??");
+		delverDTX.Text = "DTX: " + (cardData.Dexterity  <= 99 ? cardData.Dexterity.ToString() : "??");
 	}
 
 	//Todo: Maybe export this to a seperate "Helpers" script or something? May be  to load other types of entities from directory into lists?
@@ -141,4 +147,9 @@ public partial class TeamManager : Control
 
 	}
 
+	public void SwitchToMainMenu()
+	{
+		player.SetPlayerTeam(teamComposition);
+		bm.SwitchToMainMenu();
+	}
 }

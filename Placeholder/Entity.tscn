@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://b0xttwy55w2q7"]
 
 [ext_resource type="Script" path="res://Placeholder/Entity.cs" id="1_hrwcy"]
-[ext_resource type="Resource" uid="uid://uee3kt56snxw" path="res://Resources/Delvers/EntityCardTest.tres" id="2_4i6ex"]
+[ext_resource type="Resource" uid="uid://uee3kt56snxw" path="res://Resources/Delvers/Manfred.tres" id="2_4i6ex"]
 [ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="2_24mjk"]
 [ext_resource type="Texture2D" uid="uid://c76mld2wec386" path="res://Placeholder/Assets/run cycle 48x48.png" id="3_06qrs"]
 [ext_resource type="Texture2D" uid="uid://bqseg7nyoi8mf" path="res://Placeholder/Assets/Character Idle 48x48.png" id="3_j8pg1"]

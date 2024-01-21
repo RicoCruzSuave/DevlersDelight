@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b3t8rooc5q2yh"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_1pebn"]
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="1_y76h5"]
+
+[resource]
+script = ExtResource("1_y76h5")
+Name = "Millipede"
+MaxHP = 25
+Attack = 4
+Defense = 2
+Dexterity = 3
+Target = 0
+Texture = ExtResource("1_1pebn")
+Color = Color(1, 1, 1, 1)

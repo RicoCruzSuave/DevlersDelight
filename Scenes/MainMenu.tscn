@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmlaffw7x7gor"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/MainMenu.cs" id="1_3i47m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1doy"]
+font_size = 24
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("playerName", "playerMoney", "playerExperience", "playerTeamMemberCount")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3i47m")
+playerName = NodePath("MarginContainer/BoxContainer/VBoxContainer/PlayerName")
+playerMoney = NodePath("MarginContainer/BoxContainer/VBoxContainer/PlayerMoney")
+playerExperience = NodePath("MarginContainer/BoxContainer/VBoxContainer/PlayerExperience")
+playerTeamMemberCount = NodePath("MarginContainer/BoxContainer/VBoxContainer/MemberCount")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerName" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "<Playername>"
+label_settings = SubResource("LabelSettings_p1doy")
+
+[node name="PlayerMoney" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Money: 0"
+
+[node name="PlayerExperience" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Experience: 0/100"
+
+[node name="MemberCount" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Recruited Members: 0/4"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_TeamManager" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Team Manager"
+
+[node name="btn_StartRun" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start a Run"
+
+[node name="btn_Map" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Map Overview"
+
+[node name="btn_Compendium" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Delvers Compendium"
+
+[node name="btn_Inventory" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="btn_Settings" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="btn_quit" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+
+[connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/btn_TeamManager" to="." method="SwitchToTeamManager"]
+[connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/btn_quit" to="." method="QuitGame"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cb02pua58byfq"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_isiio"]
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_p747a"]
+
+[resource]
+script = ExtResource("2_p747a")
+Name = "Testsubject 0"
+MaxHP = 999
+Attack = 99
+Defense = 0
+Dexterity = 99
+Target = 0
+Texture = ExtResource("1_isiio")
+Color = Color(1, 1, 1, 1)

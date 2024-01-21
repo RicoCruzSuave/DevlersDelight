@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dygl0qjypn2fp"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_lj6lm"]
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_fiyi5"]
+
+[resource]
+script = ExtResource("2_fiyi5")
+Name = "The Souvereign of Dawn"
+MaxHP = 150
+Attack = 15
+Defense = 3
+Dexterity = 9
+Target = 2
+Texture = ExtResource("1_lj6lm")
+Color = Color(1, 1, 1, 1)

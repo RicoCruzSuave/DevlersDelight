@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnv7dnl700prs"]
 
-[ext_resource type="Script" path="res://Placeholder/TeamManager.cs" id="1_23tby"]
+[ext_resource type="Script" path="res://Scripts/TeamManager.cs" id="1_0wxrd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_53cqb"]
 line_spacing = 5.0
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_23tby")
+script = ExtResource("1_0wxrd")
 availableMembers = NodePath("MarginContainer/HBoxContainer/AvailableDelvers")
 selectedMembers = NodePath("MarginContainer/HBoxContainer/Teamcomposition")
 teamcap = NodePath("MarginContainer/HBoxContainer/MiddlePart/MarginContainer/VBoxContainer/Buttons/TeamCap")
@@ -86,7 +86,7 @@ text = "Remove member from team"
 
 [node name="StartRun" type="Button" parent="MarginContainer/HBoxContainer/MiddlePart/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
-text = "Start the run"
+text = "Back to menu"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/MiddlePart/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -132,4 +132,5 @@ layout_mode = 2
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/AvailableDelvers" to="." method="AvailableDelverSelectedEvent"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MiddlePart/MarginContainer/VBoxContainer/Buttons/AddDelver" to="." method="AddDelverToTeam"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MiddlePart/MarginContainer/VBoxContainer/Buttons/RemoveDelver" to="." method="RemoveDelverFromTeam"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MiddlePart/MarginContainer/VBoxContainer/Buttons/StartRun" to="." method="SwitchToMainMenu"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/Teamcomposition" to="." method="TeamCompositionSelectedEvent"]

@@ -8,6 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_0olpr"]
 script = ExtResource("4_k8puf")
+Name = "Entity"
 MaxHP = 1000
 Attack = 10
 Defense = 1
@@ -18,6 +19,7 @@ Color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_g3683"]
 script = ExtResource("4_k8puf")
+Name = "Entity"
 MaxHP = 25
 Attack = 10
 Defense = 1
@@ -28,6 +30,7 @@ Color = Color(1, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_h36l3"]
 script = ExtResource("4_k8puf")
+Name = "Entity"
 MaxHP = 25
 Attack = 10
 Defense = 1
@@ -38,6 +41,7 @@ Color = Color(0, 1, 0, 1)
 
 [sub_resource type="Resource" id="Resource_63lg4"]
 script = ExtResource("4_k8puf")
+Name = "Entity"
 MaxHP = 25
 Attack = 10
 Defense = 1

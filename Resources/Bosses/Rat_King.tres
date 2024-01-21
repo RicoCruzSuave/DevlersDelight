@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b0r4kkthtvyks"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="1_5pxvr"]
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_ooqwg"]
+
+[resource]
+script = ExtResource("1_5pxvr")
+Name = "The Rat King"
+MaxHP = 500
+Attack = 20
+Defense = 6
+Dexterity = 3
+Target = 0
+Texture = ExtResource("1_ooqwg")
+Color = Color(1, 1, 1, 1)

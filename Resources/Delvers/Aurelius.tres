@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bisesy5xtfy0o"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_jmtvv"]
+[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_ys6o3"]
+
+[resource]
+script = ExtResource("2_ys6o3")
+Name = "Aurelius"
+MaxHP = 120
+Attack = 4
+Defense = 5
+Dexterity = 4
+Target = 0
+Texture = ExtResource("1_jmtvv")
+Color = Color(1, 1, 1, 1)
