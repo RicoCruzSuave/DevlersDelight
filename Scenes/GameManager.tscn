@@ -15,9 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_axrvs")
 
-[node name="ButtonManager" type="Node" parent="." node_paths=PackedStringArray("TeamManagerNode", "MainMenuNode")]
+[node name="ButtonManager" type="Node" parent="." node_paths=PackedStringArray("MainMenuNode")]
 script = ExtResource("2_sjx6k")
-TeamManagerNode = NodePath("../CenterContainer/TeamManager")
 MainMenuNode = NodePath("../CenterContainer/MainMenu")
 
 [node name="CenterContainer" type="BoxContainer" parent="."]
