@@ -22,10 +22,11 @@ public partial class TextEffect : RigidBody2D
 
     public override void _Process(double delta)
     {
-        if (timer.IsStopped()) { Free(); }
         Color mod = Modulate;
         mod.A = (float)((timer.TimeLeft / timer.WaitTime) * (timer.TimeLeft / timer.WaitTime));
         Modulate = mod;
+
+        if (timer.IsStopped()) { Free(); }
     }
 
     public void Launch(Vector2 dir, double variance)
