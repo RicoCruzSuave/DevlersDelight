@@ -63,12 +63,13 @@ position = Vector2(0, -96)
 [node name="Player" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
 Card = SubResource("Resource_0olpr")
 
-[node name="Background" parent="BattleManager/PlayerTeam/Player" instance=ExtResource("2_yrxai")]
-position = Vector2(0, 96)
+[node name="Camera2D" type="Camera2D" parent="BattleManager/PlayerTeam/Player"]
+position = Vector2(288, -153)
+zoom = Vector2(0.737, 0.737)
+position_smoothing_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="BattleManager/PlayerTeam/Player/Background"]
-position = Vector2(200, -231)
-zoom = Vector2(0.5, 0.5)
+[node name="Background" parent="BattleManager/PlayerTeam/Player" instance=ExtResource("2_yrxai")]
+position = Vector2(1, 64)
 
 [node name="Entity" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
 position = Vector2(-157, 0)
