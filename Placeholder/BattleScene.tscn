@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://deecnqkmxhcly"]
+[gd_scene load_steps=11 format=3 uid="uid://deecnqkmxhcly"]
 
 [ext_resource type="Script" path="res://Placeholder/BattleManager.cs" id="1_807nl"]
 [ext_resource type="PackedScene" uid="uid://b0xttwy55w2q7" path="res://Placeholder/Entity.tscn" id="1_ptrmo"]
 [ext_resource type="PackedScene" uid="uid://c1qdmgtjyekek" path="res://Scenes/Util/EndlessBackground.tscn" id="2_yrxai"]
 [ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="3_4cvcv"]
 [ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="4_k8puf"]
+[ext_resource type="Resource" uid="uid://dcvnu7yrw62sf" path="res://Resources/Delvers/Amanda_Rockfort.tres" id="6_f28v1"]
 
 [sub_resource type="Resource" id="Resource_0olpr"]
 script = ExtResource("4_k8puf")
@@ -73,6 +74,10 @@ position = Vector2(1, 64)
 
 [node name="Entity" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
 position = Vector2(-157, 0)
+
+[node name="Entity2" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
+position = Vector2(-300, 10)
+Card = ExtResource("6_f28v1")
 
 [node name="EnemyTeam" type="Node2D" parent="BattleManager"]
 position = Vector2(664, -96)

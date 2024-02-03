@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_5lr3a")
-Name = "Manfred"
+Name = "Entity"
 MaxHP = 100
 Attack = 10
 Defense = 10

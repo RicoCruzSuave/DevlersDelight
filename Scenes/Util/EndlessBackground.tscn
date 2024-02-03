@@ -104,6 +104,7 @@ texture = SubResource("GradientTexture2D_3ueds")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.75, 0.75)
+motion_offset = Vector2(-1008, 0)
 motion_mirroring = Vector2(2016, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -116,7 +117,8 @@ texture = ExtResource("3_mo1km")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(74.12, 0)
+motion_offset = Vector2(192, 0)
+motion_mirroring = Vector2(80, 0)
 
 [node name="Rock(mid)1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(40, -95)
