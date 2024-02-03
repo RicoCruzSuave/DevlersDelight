@@ -14,14 +14,12 @@ public partial class TeamManager : Control
 	[Export] private Label teamcap, available , delverName, delverATK, delverDEF, delverDTX, delverHP;
 	[Export] private TextureRect delverIcon;
 	[Export] private Player player;
-
-	private ButtonManager bm;
 	
 	private List<EntityCard> availableDelvers, teamComposition;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		bm = GetTree().Root.GetNode<ButtonManager>("GameManager/ButtonManager");
+		//bm = GetTree().Root.GetNode<ButtonManager>("GameManager/ButtonManager");
 		availableDelvers = LoadEntitiesFromDirectory(DELVER_RESOURCE_PATH);
 		foreach(EntityCard card in availableDelvers)
 		{
@@ -150,6 +148,6 @@ public partial class TeamManager : Control
 	public void SwitchToMainMenu()
 	{
 		player.SetPlayerTeam(teamComposition);
-		bm.SwitchToMainMenu();
+		//bm.SwitchToMainMenu();
 	}
 }
