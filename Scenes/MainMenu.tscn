@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://c6k1nvsicqvbe"]
+[gd_scene load_steps=70 format=3 uid="uid://c6k1nvsicqvbe"]
 
 [ext_resource type="Resource" uid="uid://boghvra7ljr7g" path="res://Resources/player.tres" id="1_3cdgr"]
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_p62c0"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cbrdy1fhp5xy1" path="res://Placeholder/Assets/MenuAssets/GUI/Paper/1.png" id="21_w3w83"]
 [ext_resource type="Texture2D" uid="uid://dvtsqbl8u3tqy" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/3.png" id="22_4btjb"]
 [ext_resource type="Texture2D" uid="uid://bcvghh881fqt0" path="res://Placeholder/Assets/MenuAssets/Book/Page Flip/Left/4.png" id="22_gysvw"]
+[ext_resource type="Script" path="res://Scenes/RecruitingTab.cs" id="22_qee1p"]
 [ext_resource type="Texture2D" uid="uid://cf4sh6hays1u2" path="res://Placeholder/Assets/MenuAssets/Book/Open/1.png" id="23_kdwd8"]
 [ext_resource type="Texture2D" uid="uid://dyt6lpdej5ae" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/16.png" id="23_tjnlb"]
 [ext_resource type="Texture2D" uid="uid://d25ykgigieejx" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/5.png" id="24_aqich"]
@@ -131,6 +132,14 @@ font_color = Color(0.764706, 0.537255, 0.364706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gqiwr"]
 font_size = 71
+
+[sub_resource type="LabelSettings" id="LabelSettings_pj6ax"]
+font_size = 21
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8isxv"]
+font_size = 21
+font_color = Color(0.568627, 0.4, 0.356863, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_al1k5"]
 animations = [{
@@ -873,6 +882,7 @@ texture = ExtResource("3_1a0oy")
 expand_mode = 3
 
 [node name="TeamManager" type="Control" parent="Desk_Paper"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1154,11 +1164,23 @@ offset_bottom = 708.0
 texture = ExtResource("21_w3w83")
 stretch_mode = 4
 
-[node name="RecruitingTab" type="Control" parent="Desk_Paper/TeamManager/Secondary"]
+[node name="RecruitingTab" type="Control" parent="Desk_Paper/TeamManager/Secondary" node_paths=PackedStringArray("lbl_noRecruits", "recruitBtnLabel", "recruitPreviewCard", "lbl_recruitCount", "delverName", "delverHP", "delverDescription", "delverATK", "delverDEF", "delverDTX", "delverIcon")]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("22_qee1p")
+lbl_noRecruits = NodePath("NoDelver")
+recruitBtnLabel = NodePath("../../Primary/Overview/ButtonContainer/btn_recruit/Label")
+recruitPreviewCard = NodePath("DelverPreview")
+lbl_recruitCount = NodePath("DelverPreview/lbl_newRecruits")
+delverName = NodePath("DelverPreview/lbl_name")
+delverHP = NodePath("DelverPreview/VBoxContainer/HP")
+delverDescription = NodePath("DelverPreview/Description")
+delverATK = NodePath("DelverPreview/VBoxContainer/ATK")
+delverDEF = NodePath("DelverPreview/VBoxContainer/DEF")
+delverDTX = NodePath("DelverPreview/VBoxContainer/DTX")
+delverIcon = NodePath("DelverPreview/ProfileBorder/ProfilePic")
 
 [node name="NoDelver" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab"]
 layout_mode = 0
@@ -1180,10 +1202,10 @@ offset_bottom = 40.0
 
 [node name="lbl_name" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 145.0
+offset_left = 73.0
 offset_top = 60.0
-offset_right = 379.0
-offset_bottom = 140.0
+offset_right = 458.0
+offset_bottom = 144.0
 text = "<Delver_Name>"
 label_settings = SubResource("LabelSettings_8ri15")
 horizontal_alignment = 1
@@ -1195,39 +1217,39 @@ offset_left = 52.0
 offset_top = 9.0
 offset_right = 170.0
 offset_bottom = 35.0
-text = "1 new Recruit!"
 
 [node name="ProfileBorder" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 185.0
+offset_left = 195.0
 offset_top = 146.0
-offset_right = 340.0
+offset_right = 350.0
 offset_bottom = 301.0
 texture = ExtResource("22_4btjb")
 stretch_mode = 4
 
 [node name="ProfilePic" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 18.0
-offset_right = 133.0
-offset_bottom = 133.0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 130.0
+offset_bottom = 130.0
 texture = ExtResource("23_tjnlb")
+expand_mode = 1
 stretch_mode = 4
 
 [node name="itemslot1" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
-offset_left = -90.0
+offset_left = -109.0
 offset_top = 115.0
-offset_right = -23.0
+offset_right = -42.0
 offset_bottom = 182.0
 texture = ExtResource("24_aqich")
 
 [node name="itemslot2" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
-offset_left = -29.0
+offset_left = -48.0
 offset_top = 172.0
-offset_right = 38.0
+offset_right = 19.0
 offset_bottom = 239.0
 texture = ExtResource("24_aqich")
 
@@ -1299,6 +1321,12 @@ offset_top = 424.0
 offset_right = 226.0
 offset_bottom = 503.0
 
+[node name="HP" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
+layout_mode = 2
+text = "Max HP: 0"
+label_settings = SubResource("LabelSettings_wk2g7")
+autowrap_mode = 3
+
 [node name="ATK" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
 layout_mode = 2
 text = "ATK: 0"
@@ -1319,47 +1347,141 @@ autowrap_mode = 3
 
 [node name="btn_accept" type="TextureButton" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 500.0
-offset_right = 116.0
-offset_bottom = 540.0
+offset_left = 218.0
+offset_top = 332.0
+offset_right = 258.0
+offset_bottom = 372.0
 texture_normal = ExtResource("27_qy6bc")
 texture_hover = ExtResource("28_xy2uu")
 stretch_mode = 4
 
 [node name="btn_deny" type="TextureButton" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 145.0
-offset_top = 500.0
-offset_right = 185.0
-offset_bottom = 540.0
+offset_left = 287.0
+offset_top = 332.0
+offset_right = 327.0
+offset_bottom = 372.0
 texture_normal = ExtResource("29_aih2x")
 texture_hover = ExtResource("30_o38xx")
 stretch_mode = 4
 
 [node name="WorldMap" type="Control" parent="Desk_Paper"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="lbl_map" type="Label" parent="Desk_Paper/WorldMap"]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 32.0
-offset_right = 411.0
-offset_bottom = 132.0
+offset_left = 173.0
+offset_top = -8.0
+offset_right = 547.0
+offset_bottom = 92.0
 text = "World Map"
 label_settings = SubResource("LabelSettings_gqiwr")
 
 [node name="WorldMap" type="TextureRect" parent="Desk_Paper/WorldMap"]
 layout_mode = 0
-offset_left = -230.0
-offset_top = -58.0
-offset_right = 1586.0
-offset_bottom = 856.0
+offset_left = 31.0
+offset_top = 99.0
+offset_right = 1239.0
+offset_bottom = 684.0
 texture = ExtResource("27_loj1n")
 stretch_mode = 4
+
+[node name="lbl_island_name" type="Label" parent="Desk_Paper/WorldMap/WorldMap"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 92.0
+offset_right = 270.0
+offset_bottom = 125.0
+text = "Island: Rimor Haven"
+label_settings = SubResource("LabelSettings_pj6ax")
+
+[node name="Home" type="TextureButton" parent="Desk_Paper/WorldMap/WorldMap"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 418.0
+offset_right = 151.0
+offset_bottom = 458.0
+texture_normal = ExtResource("29_aih2x")
+texture_hover = ExtResource("30_o38xx")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/WorldMap/WorldMap/Home"]
+offset_left = -60.0
+offset_top = -14.0
+offset_right = 113.0
+offset_bottom = 19.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/WorldMap/WorldMap/Home"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -26.0
+offset_right = 77.0
+offset_bottom = 7.0
+text = "Settlement"
+label_settings = SubResource("LabelSettings_8isxv")
+
+[node name="cave" type="TextureButton" parent="Desk_Paper/WorldMap/WorldMap"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 260.0
+offset_right = 277.0
+offset_bottom = 300.0
+texture_normal = ExtResource("29_aih2x")
+texture_hover = ExtResource("30_o38xx")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/WorldMap/WorldMap/cave"]
+offset_left = -60.0
+offset_top = -14.0
+offset_right = 113.0
+offset_bottom = 19.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/WorldMap/WorldMap/cave"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = -26.0
+offset_right = 108.0
+offset_bottom = 7.0
+text = "Cave Entrance #1"
+label_settings = SubResource("LabelSettings_8isxv")
+horizontal_alignment = 1
+
+[node name="ruin" type="TextureButton" parent="Desk_Paper/WorldMap/WorldMap"]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 300.0
+offset_right = 653.0
+offset_bottom = 340.0
+texture_normal = ExtResource("29_aih2x")
+texture_hover = ExtResource("30_o38xx")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/WorldMap/WorldMap/ruin"]
+offset_left = -60.0
+offset_top = -14.0
+offset_right = 113.0
+offset_bottom = 19.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/WorldMap/WorldMap/ruin"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = -26.0
+offset_right = 108.0
+offset_bottom = 7.0
+text = "Abandoned Ruin"
+label_settings = SubResource("LabelSettings_8isxv")
+horizontal_alignment = 1
 
 [node name="btn_backToMenu" type="TextureButton" parent="Desk_Paper"]
 layout_mode = 2
@@ -1424,9 +1546,12 @@ autowrap_mode = 2
 
 [connection signal="pressed" from="Desk_Book/Book/PreGamePage/SetupPage/VBoxContainer/btn_start" to="Management/GameManager" method="SetPlayerName"]
 [connection signal="pressed" from="Desk_Book/Book/MainMenu/Overview/ButtonContainer/btn_TeamManager" to="Management/NavigationManager" method="SwitchToTeamManager"]
+[connection signal="pressed" from="Desk_Book/Book/MainMenu/Overview/ButtonContainer/btn_map" to="Management/NavigationManager" method="SwitchToMap"]
 [connection signal="pressed" from="Desk_Book/Book/MainMenu/Overview/ButtonContainer/btn_quit" to="Management/NavigationManager" method="QuitGame"]
 [connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_recruit" to="Management/NavigationManager" method="TM_SwitchToRecruiting"]
 [connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack" to="Management/NavigationManager" method="TM_SwitchFromRecruiting"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/btn_previous" to="Desk_Paper/TeamManager/Secondary/RecruitingTab" method="PreviousDelver"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/btn_next" to="Desk_Paper/TeamManager/Secondary/RecruitingTab" method="NextDelver"]
 [connection signal="pressed" from="Desk_Paper/btn_backToMenu" to="Management/NavigationManager" method="SwitchToBook"]
 [connection signal="animation_finished" from="FlipPageLeft" to="Management/NavigationManager" method="PageFlipFinished"]
 [connection signal="animation_finished" from="AnimatedBookOpen" to="AnimatedBookOpen" method="FinishedAnimation"]

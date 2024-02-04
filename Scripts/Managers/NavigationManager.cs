@@ -22,6 +22,13 @@ public partial class NavigationManager : Node
 
 	//Button Functions
 
+	public void SwitchToMap()
+	{
+		OpenDeskCam.MakeCurrent();
+		MapNode.Visible= true;
+		TeamManagerNode.Visible = false;
+	}
+
 	public void TM_SwitchToRecruiting()
 	{
 		TM_Overview.Visible = false;
@@ -38,6 +45,8 @@ public partial class NavigationManager : Node
 	public void SwitchToTeamManager()
 	{
 		OpenDeskCam.MakeCurrent();
+		MapNode.Visible= false;
+		TeamManagerNode.Visible = true;
 	}
 	public void SwitchToBook()
 	{
@@ -58,8 +67,6 @@ public partial class NavigationManager : Node
 		GetTree().Quit();
 	}
 
-
-	//EventFunctions
 	//Called whenever the PageFlip Animation signal is emitted
 	public void PageFlipFinished(){
 

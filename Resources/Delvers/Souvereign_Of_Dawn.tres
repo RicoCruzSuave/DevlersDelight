@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://dygl0qjypn2fp"]
 
-[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_lj6lm"]
+[ext_resource type="Texture2D" uid="uid://brqj0g6yuefny" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/17.png" id="1_0ikfs"]
 [ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_fiyi5"]
 
 [resource]
@@ -11,5 +11,5 @@ Attack = 15
 Defense = 3
 Dexterity = 9
 Target = 2
-Texture = ExtResource("1_lj6lm")
+Texture = ExtResource("1_0ikfs")
 Color = Color(1, 1, 1, 1)
