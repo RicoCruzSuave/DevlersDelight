@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c6k1nvsicqvbe"]
+[gd_scene load_steps=67 format=3 uid="uid://c6k1nvsicqvbe"]
 
 [ext_resource type="Resource" uid="uid://boghvra7ljr7g" path="res://Resources/player.tres" id="1_3cdgr"]
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.cs" id="1_p62c0"]
@@ -101,6 +101,18 @@ font_color = Color(0.568627, 0.4, 0.356863, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_spbb2"]
 font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgbek"]
+font_size = 31
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_we6hi"]
+font_size = 26
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3rvxp"]
+font_size = 31
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nqe02"]
 font = ExtResource("5_jd7ke")
@@ -208,13 +220,18 @@ playerName = NodePath("../../Desk_Book/Book/MainMenu/PlayerInfo/ProfileSpriteBor
 playerMoney = NodePath("../../Desk_Book/Book/MainMenu/PlayerInfo/ProfileSpriteBorder/VBoxContainer/Money")
 playerExperience = NodePath("../../Desk_Book/Book/MainMenu/PlayerInfo/ProfileSpriteBorder/VBoxContainer/Experience")
 
-[node name="NavigationManager" type="Node" parent="Management" node_paths=PackedStringArray("BookCam", "OpenDeskCam", "pageFlipLeft", "PreGameNode", "MainMenuNode")]
+[node name="NavigationManager" type="Node" parent="Management" node_paths=PackedStringArray("BookCam", "OpenDeskCam", "pageFlipLeft", "PreGameNode", "MainMenuNode", "TeamManagerNode", "MapNode", "TM_Overview", "TM_Recruited", "TM_RecruitMembers")]
 script = ExtResource("4_lktx8")
 BookCam = NodePath("../../Cameras/BookCam")
 OpenDeskCam = NodePath("../../Cameras/OpenDeskCam")
 pageFlipLeft = NodePath("../../FlipPageLeft")
 PreGameNode = NodePath("../../Desk_Book/Book/PreGamePage")
 MainMenuNode = NodePath("../../Desk_Book/Book/MainMenu")
+TeamManagerNode = NodePath("../../Desk_Paper/TeamManager")
+MapNode = NodePath("../../Desk_Paper/WorldMap")
+TM_Overview = NodePath("../../Desk_Paper/TeamManager/Primary/Overview")
+TM_Recruited = NodePath("../../Desk_Paper/TeamManager/Primary/Recruits")
+TM_RecruitMembers = NodePath("../../Desk_Paper/TeamManager/Secondary/RecruitingTab")
 
 [node name="Desk_Book" type="TextureRect" parent="."]
 texture_filter = 1
@@ -862,78 +879,334 @@ offset_bottom = 40.0
 
 [node name="lbl_teamManager" type="Label" parent="Desk_Paper/TeamManager"]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 6.0
-offset_right = 483.0
-offset_bottom = 86.0
+offset_left = 656.0
+offset_top = 12.0
+offset_right = 1060.0
+offset_bottom = 92.0
 text = "Team Manager"
 label_settings = SubResource("LabelSettings_spbb2")
 
-[node name="PlayerTeam" type="TextureRect" parent="Desk_Paper/TeamManager"]
+[node name="Primary" type="TextureRect" parent="Desk_Paper/TeamManager"]
 layout_mode = 0
-offset_left = 274.0
-offset_top = -9.0
-offset_right = 1751.0
-offset_bottom = 734.0
+offset_left = 40.0
+offset_top = 22.0
+offset_right = 599.0
+offset_bottom = 710.0
 texture = ExtResource("20_l880u")
 stretch_mode = 4
 
-[node name="RecruitsList" type="TextureRect" parent="Desk_Paper/TeamManager"]
+[node name="Overview" type="Control" parent="Desk_Paper/TeamManager/Primary"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_Overview" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview"]
 layout_mode = 0
-offset_left = -383.0
-offset_top = 73.0
-offset_right = 935.0
-offset_bottom = 736.0
+offset_left = 124.0
+offset_top = 55.0
+offset_right = 418.0
+offset_bottom = 102.0
+text = "Overview"
+label_settings = SubResource("LabelSettings_wgbek")
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Desk_Paper/TeamManager/Primary/Overview"]
+offset_left = 111.0
+offset_top = 139.0
+offset_right = 447.0
+offset_bottom = 554.0
+
+[node name="btn_createTeam" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("7_u5f7l")
+texture_pressed = ExtResource("8_00kfb")
+texture_hover = ExtResource("8_00kfb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_createTeam"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Create a new Team (0/1)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_createTeam"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_editTeam" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("7_u5f7l")
+texture_pressed = ExtResource("8_00kfb")
+texture_hover = ExtResource("8_00kfb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_editTeam"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Edit a Team"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_editTeam"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_manageMembers" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("7_u5f7l")
+texture_pressed = ExtResource("8_00kfb")
+texture_hover = ExtResource("8_00kfb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_manageMembers"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Manage Members (0/8)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_manageMembers"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_expeditions" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("7_u5f7l")
+texture_pressed = ExtResource("8_00kfb")
+texture_hover = ExtResource("8_00kfb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_expeditions"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "View Expeditions (0)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_expeditions"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_recruit" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("7_u5f7l")
+texture_pressed = ExtResource("8_00kfb")
+texture_hover = ExtResource("8_00kfb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_recruit"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Recruit Members (0)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_recruit"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="endoflist" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture = ExtResource("6_erf37")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="home_stats" type="VBoxContainer" parent="Desk_Paper/TeamManager/Primary/Overview"]
+z_index = 1
+layout_mode = 0
+offset_left = 762.0
+offset_top = 148.0
+offset_right = 1136.0
+offset_bottom = 615.0
+metadata/_edit_group_ = true
+
+[node name="lbl_activeExpeditions" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/home_stats"]
+layout_mode = 2
+text = "0 active Expeditions"
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="lbl_finishedExpeditions" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/home_stats"]
+layout_mode = 2
+text = "0 finished Expeditions"
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="lbl_deaths" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/home_stats"]
+layout_mode = 2
+text = "0 characters died (so far)"
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="lbl_info" type="Label" parent="Desk_Paper/TeamManager/Primary/Overview/home_stats"]
+layout_mode = 2
+text = "other infos here..."
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="Recruits" type="Control" parent="Desk_Paper/TeamManager/Primary"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_recruited" type="Label" parent="Desk_Paper/TeamManager/Primary/Recruits"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 52.0
+offset_right = 349.0
+offset_bottom = 100.0
+text = "Recruited Members (0/4)"
+label_settings = SubResource("LabelSettings_3rvxp")
+
+[node name="recruitedMembers" type="ItemList" parent="Desk_Paper/TeamManager/Primary/Recruits"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 100.0
+offset_right = 476.0
+offset_bottom = 548.0
+
+[node name="btn_goBack" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Recruits"]
+custom_minimum_size = Vector2(0, 48)
+offset_left = 184.0
+offset_top = 555.0
+offset_right = 231.0
+offset_bottom = 603.0
+texture_normal = ExtResource("7_u5f7l")
+texture_pressed = ExtResource("8_00kfb")
+texture_hover = ExtResource("8_00kfb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Go Back"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Secondary" type="TextureRect" parent="Desk_Paper/TeamManager"]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 101.0
+offset_right = 1249.0
+offset_bottom = 708.0
 texture = ExtResource("21_w3w83")
 stretch_mode = 4
 
-[node name="NoDelver" type="Label" parent="Desk_Paper/TeamManager/RecruitsList"]
+[node name="RecruitingTab" type="Control" parent="Desk_Paper/TeamManager/Secondary"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NoDelver" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab"]
 layout_mode = 0
-offset_left = 455.0
-offset_top = 105.0
-offset_right = 845.0
-offset_bottom = 587.0
+offset_left = 67.0
+offset_top = 60.0
+offset_right = 462.0
+offset_bottom = 549.0
 text = "There are no recruits. Come back later!"
 label_settings = SubResource("LabelSettings_nqe02")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="DelverPreview" type="Control" parent="Desk_Paper/TeamManager/RecruitsList"]
+[node name="DelverPreview" type="Control" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab"]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="lbl_name" type="Label" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="lbl_name" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 523.0
-offset_top = 104.0
-offset_right = 757.0
-offset_bottom = 184.0
+offset_left = 145.0
+offset_top = 60.0
+offset_right = 379.0
+offset_bottom = 140.0
 text = "<Delver_Name>"
 label_settings = SubResource("LabelSettings_8ri15")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="lbl_newRecruits" type="Label" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="lbl_newRecruits" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 430.0
-offset_top = 53.0
-offset_right = 548.0
-offset_bottom = 79.0
+offset_left = 52.0
+offset_top = 9.0
+offset_right = 170.0
+offset_bottom = 35.0
 text = "1 new Recruit!"
 
-[node name="ProfileBorder" type="TextureRect" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="ProfileBorder" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 563.0
-offset_top = 190.0
-offset_right = 718.0
-offset_bottom = 345.0
+offset_left = 185.0
+offset_top = 146.0
+offset_right = 340.0
+offset_bottom = 301.0
 texture = ExtResource("22_4btjb")
 stretch_mode = 4
 
-[node name="ProfilePic" type="TextureRect" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/ProfileBorder"]
+[node name="ProfilePic" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 18.0
@@ -942,7 +1215,7 @@ offset_bottom = 133.0
 texture = ExtResource("23_tjnlb")
 stretch_mode = 4
 
-[node name="itemslot1" type="TextureRect" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/ProfileBorder"]
+[node name="itemslot1" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
 offset_left = -90.0
 offset_top = 115.0
@@ -950,7 +1223,7 @@ offset_right = -23.0
 offset_bottom = 182.0
 texture = ExtResource("24_aqich")
 
-[node name="itemslot2" type="TextureRect" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/ProfileBorder"]
+[node name="itemslot2" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
 offset_left = -29.0
 offset_top = 172.0
@@ -958,7 +1231,7 @@ offset_right = 38.0
 offset_bottom = 239.0
 texture = ExtResource("24_aqich")
 
-[node name="itemslot3" type="TextureRect" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/ProfileBorder"]
+[node name="itemslot3" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
 offset_left = 135.0
 offset_top = 172.0
@@ -966,7 +1239,7 @@ offset_right = 202.0
 offset_bottom = 239.0
 texture = ExtResource("24_aqich")
 
-[node name="itemslot4" type="TextureRect" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/ProfileBorder"]
+[node name="itemslot4" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
 layout_mode = 0
 offset_left = 189.0
 offset_top = 115.0
@@ -974,92 +1247,92 @@ offset_right = 256.0
 offset_bottom = 182.0
 texture = ExtResource("24_aqich")
 
-[node name="btn_previous" type="TextureButton" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="btn_previous" type="TextureButton" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
-offset_left = 476.0
-offset_top = 233.0
-offset_right = 534.0
-offset_bottom = 291.0
+offset_left = 98.0
+offset_top = 189.0
+offset_right = 156.0
+offset_bottom = 247.0
 texture_normal = ExtResource("25_fl5b6")
 texture_hover = ExtResource("26_nunb1")
 stretch_mode = 4
 
-[node name="btn_next" type="TextureButton" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="btn_next" type="TextureButton" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
-offset_left = 758.0
-offset_top = 233.0
-offset_right = 816.0
-offset_bottom = 291.0
+offset_left = 380.0
+offset_top = 189.0
+offset_right = 438.0
+offset_bottom = 247.0
 texture_normal = ExtResource("25_fl5b6")
 texture_hover = ExtResource("26_nunb1")
 stretch_mode = 4
 flip_h = true
 
-[node name="Description" type="Label" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="Description" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 614.0
-offset_top = 445.0
-offset_right = 824.0
-offset_bottom = 583.0
-text = "\"I am builtdifferent! From a young agei wanted to go delving. But my mum always made me do the dishes instead.\""
+offset_left = 236.0
+offset_top = 401.0
+offset_right = 446.0
+offset_bottom = 539.0
+text = "\"I am built different! From a young agei wanted to go delving. But my mum always made me do the dishes instead.\""
 label_settings = SubResource("LabelSettings_wk2g7")
 autowrap_mode = 3
 
-[node name="lbl_Stats" type="Label" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="lbl_Stats" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 2
-offset_left = 461.0
-offset_top = 443.0
-offset_right = 604.0
-offset_bottom = 466.0
+offset_left = 83.0
+offset_top = 399.0
+offset_right = 226.0
+offset_bottom = 422.0
 text = "Statistics:"
 label_settings = SubResource("LabelSettings_wk2g7")
 autowrap_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 461.0
-offset_top = 468.0
-offset_right = 604.0
-offset_bottom = 547.0
+offset_left = 83.0
+offset_top = 424.0
+offset_right = 226.0
+offset_bottom = 503.0
 
-[node name="ATK" type="Label" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/VBoxContainer"]
+[node name="ATK" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
 layout_mode = 2
 text = "ATK: 0"
 label_settings = SubResource("LabelSettings_wk2g7")
 autowrap_mode = 3
 
-[node name="DEF" type="Label" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/VBoxContainer"]
+[node name="DEF" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
 layout_mode = 2
 text = "DEF: 0"
 label_settings = SubResource("LabelSettings_wk2g7")
 autowrap_mode = 3
 
-[node name="DTX" type="Label" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview/VBoxContainer"]
+[node name="DTX" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
 layout_mode = 2
 text = "DTX: 0"
 label_settings = SubResource("LabelSettings_wk2g7")
 autowrap_mode = 3
 
-[node name="btn_accept" type="TextureButton" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="btn_accept" type="TextureButton" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 454.0
-offset_top = 544.0
-offset_right = 494.0
-offset_bottom = 584.0
+offset_left = 76.0
+offset_top = 500.0
+offset_right = 116.0
+offset_bottom = 540.0
 texture_normal = ExtResource("27_qy6bc")
 texture_hover = ExtResource("28_xy2uu")
 stretch_mode = 4
 
-[node name="btn_deny" type="TextureButton" parent="Desk_Paper/TeamManager/RecruitsList/DelverPreview"]
+[node name="btn_deny" type="TextureButton" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 523.0
-offset_top = 544.0
-offset_right = 563.0
-offset_bottom = 584.0
+offset_left = 145.0
+offset_top = 500.0
+offset_right = 185.0
+offset_bottom = 540.0
 texture_normal = ExtResource("29_aih2x")
 texture_hover = ExtResource("30_o38xx")
 stretch_mode = 4
@@ -1152,6 +1425,8 @@ autowrap_mode = 2
 [connection signal="pressed" from="Desk_Book/Book/PreGamePage/SetupPage/VBoxContainer/btn_start" to="Management/GameManager" method="SetPlayerName"]
 [connection signal="pressed" from="Desk_Book/Book/MainMenu/Overview/ButtonContainer/btn_TeamManager" to="Management/NavigationManager" method="SwitchToTeamManager"]
 [connection signal="pressed" from="Desk_Book/Book/MainMenu/Overview/ButtonContainer/btn_quit" to="Management/NavigationManager" method="QuitGame"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_recruit" to="Management/NavigationManager" method="TM_SwitchToRecruiting"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack" to="Management/NavigationManager" method="TM_SwitchFromRecruiting"]
 [connection signal="pressed" from="Desk_Paper/btn_backToMenu" to="Management/NavigationManager" method="SwitchToBook"]
 [connection signal="animation_finished" from="FlipPageLeft" to="Management/NavigationManager" method="PageFlipFinished"]
 [connection signal="animation_finished" from="AnimatedBookOpen" to="AnimatedBookOpen" method="FinishedAnimation"]

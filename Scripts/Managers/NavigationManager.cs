@@ -9,13 +9,32 @@ public partial class NavigationManager : Node
 	[Export] AnimatedSprite2D pageFlipLeft;
 
 	//Pages
-	[ExportGroup("Pages")]
+	[ExportGroup("Main Pages")]
 	[Export] private Control PreGameNode, MainMenuNode, TeamManagerNode, MapNode;
-
+	
+	[ExportCategory("Sub Pages")]
+	[ExportGroup("Team Management")]
+	[Export] private Control TM_Overview;
+	[Export] private Control TM_Recruited;
+	[Export] private Control TM_RecruitMembers;
 	//Has the page the player wants to access stored for when the animation is finished.
 	private Control gotoPage; 
 
 	//Button Functions
+
+	public void TM_SwitchToRecruiting()
+	{
+		TM_Overview.Visible = false;
+		TM_Recruited.Visible = true;
+		TM_RecruitMembers.Visible = true;
+	}
+	public void TM_SwitchFromRecruiting()
+	{
+		TM_Overview.Visible = true;
+		TM_Recruited.Visible = false;
+		TM_RecruitMembers.Visible = false;
+	}
+
 	public void SwitchToTeamManager()
 	{
 		OpenDeskCam.MakeCurrent();
