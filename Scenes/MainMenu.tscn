@@ -882,7 +882,6 @@ texture = ExtResource("3_1a0oy")
 expand_mode = 3
 
 [node name="TeamManager" type="Control" parent="Desk_Paper"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -921,6 +920,7 @@ label_settings = SubResource("LabelSettings_wgbek")
 horizontal_alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="Desk_Paper/TeamManager/Primary/Overview"]
+layout_mode = 0
 offset_left = 111.0
 offset_top = 139.0
 offset_right = 447.0
@@ -1124,18 +1124,51 @@ offset_top = 100.0
 offset_right = 476.0
 offset_bottom = 548.0
 
-[node name="btn_goBack" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Recruits"]
+[node name="btn_removeRecruit" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Recruits"]
 custom_minimum_size = Vector2(0, 48)
-offset_left = 184.0
+layout_mode = 0
+offset_left = 39.0
 offset_top = 555.0
-offset_right = 231.0
+offset_right = 86.0
 offset_bottom = 603.0
 texture_normal = ExtResource("7_u5f7l")
 texture_pressed = ExtResource("8_00kfb")
 texture_hover = ExtResource("8_00kfb")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack"]
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_removeRecruit"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Remove Recruit"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_removeRecruit"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("9_oywjd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_goBack3" type="TextureButton" parent="Desk_Paper/TeamManager/Primary/Recruits"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 0
+offset_left = 343.0
+offset_top = 555.0
+offset_right = 390.0
+offset_bottom = 603.0
+texture_normal = ExtResource("7_u5f7l")
+texture_pressed = ExtResource("8_00kfb")
+texture_hover = ExtResource("8_00kfb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack3"]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 3.0
@@ -1145,7 +1178,7 @@ text = "Go Back"
 label_settings = SubResource("LabelSettings_7msnd")
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack"]
+[node name="TextureRect" type="TextureRect" parent="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack3"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 16.0
@@ -1164,16 +1197,18 @@ offset_bottom = 708.0
 texture = ExtResource("21_w3w83")
 stretch_mode = 4
 
-[node name="RecruitingTab" type="Control" parent="Desk_Paper/TeamManager/Secondary" node_paths=PackedStringArray("lbl_noRecruits", "recruitBtnLabel", "recruitPreviewCard", "lbl_recruitCount", "delverName", "delverHP", "delverDescription", "delverATK", "delverDEF", "delverDTX", "delverIcon")]
+[node name="RecruitingTab" type="Control" parent="Desk_Paper/TeamManager/Secondary" node_paths=PackedStringArray("lbl_noRecruits", "recruitBtnLabel", "recruitCount", "recruitPreviewCard", "recruitedMembers", "delverName", "delverHP", "delverDescription", "delverATK", "delverDEF", "delverDTX", "delverIcon")]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("22_qee1p")
+player = ExtResource("1_3cdgr")
 lbl_noRecruits = NodePath("NoDelver")
 recruitBtnLabel = NodePath("../../Primary/Overview/ButtonContainer/btn_recruit/Label")
+recruitCount = NodePath("../../Primary/Recruits/lbl_recruited")
 recruitPreviewCard = NodePath("DelverPreview")
-lbl_recruitCount = NodePath("DelverPreview/lbl_newRecruits")
+recruitedMembers = NodePath("../../Primary/Recruits/recruitedMembers")
 delverName = NodePath("DelverPreview/lbl_name")
 delverHP = NodePath("DelverPreview/VBoxContainer/HP")
 delverDescription = NodePath("DelverPreview/Description")
@@ -1183,6 +1218,7 @@ delverDTX = NodePath("DelverPreview/VBoxContainer/DTX")
 delverIcon = NodePath("DelverPreview/ProfileBorder/ProfilePic")
 
 [node name="NoDelver" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab"]
+visible = false
 layout_mode = 0
 offset_left = 67.0
 offset_top = 60.0
@@ -1195,7 +1231,6 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="DelverPreview" type="Control" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1210,13 +1245,6 @@ text = "<Delver_Name>"
 label_settings = SubResource("LabelSettings_8ri15")
 horizontal_alignment = 1
 autowrap_mode = 3
-
-[node name="lbl_newRecruits" type="Label" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
-layout_mode = 0
-offset_left = 52.0
-offset_top = 9.0
-offset_right = 170.0
-offset_bottom = 35.0
 
 [node name="ProfileBorder" type="TextureRect" parent="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
@@ -1366,6 +1394,7 @@ texture_hover = ExtResource("30_o38xx")
 stretch_mode = 4
 
 [node name="WorldMap" type="Control" parent="Desk_Paper"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1408,6 +1437,7 @@ texture_hover = ExtResource("30_o38xx")
 stretch_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="Desk_Paper/WorldMap/WorldMap/Home"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -14.0
 offset_right = 113.0
@@ -1436,6 +1466,7 @@ texture_hover = ExtResource("30_o38xx")
 stretch_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="Desk_Paper/WorldMap/WorldMap/cave"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -14.0
 offset_right = 113.0
@@ -1465,6 +1496,7 @@ texture_hover = ExtResource("30_o38xx")
 stretch_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="Desk_Paper/WorldMap/WorldMap/ruin"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -14.0
 offset_right = 113.0
@@ -1549,9 +1581,12 @@ autowrap_mode = 2
 [connection signal="pressed" from="Desk_Book/Book/MainMenu/Overview/ButtonContainer/btn_map" to="Management/NavigationManager" method="SwitchToMap"]
 [connection signal="pressed" from="Desk_Book/Book/MainMenu/Overview/ButtonContainer/btn_quit" to="Management/NavigationManager" method="QuitGame"]
 [connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Overview/ButtonContainer/btn_recruit" to="Management/NavigationManager" method="TM_SwitchToRecruiting"]
-[connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack" to="Management/NavigationManager" method="TM_SwitchFromRecruiting"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Recruits/btn_removeRecruit" to="Desk_Paper/TeamManager/Secondary/RecruitingTab" method="RemoveRecruit"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Primary/Recruits/btn_goBack3" to="Management/NavigationManager" method="TM_SwitchFromRecruiting"]
 [connection signal="pressed" from="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/btn_previous" to="Desk_Paper/TeamManager/Secondary/RecruitingTab" method="PreviousDelver"]
 [connection signal="pressed" from="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/btn_next" to="Desk_Paper/TeamManager/Secondary/RecruitingTab" method="NextDelver"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/btn_accept" to="Desk_Paper/TeamManager/Secondary/RecruitingTab" method="AcceptDelver"]
+[connection signal="pressed" from="Desk_Paper/TeamManager/Secondary/RecruitingTab/DelverPreview/btn_deny" to="Desk_Paper/TeamManager/Secondary/RecruitingTab" method="DenyDelver"]
 [connection signal="pressed" from="Desk_Paper/btn_backToMenu" to="Management/NavigationManager" method="SwitchToBook"]
 [connection signal="animation_finished" from="FlipPageLeft" to="Management/NavigationManager" method="PageFlipFinished"]
 [connection signal="animation_finished" from="AnimatedBookOpen" to="AnimatedBookOpen" method="FinishedAnimation"]

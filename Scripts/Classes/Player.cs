@@ -16,9 +16,16 @@ public partial class Player : Resource
 	{
 		return TeamComposition.Count();
 	}
-	
 	public void SetPlayerTeam(List<EntityCard> team)
 	{
 		this.TeamComposition = team;
 	}
+	public void AddMemberToTeam(EntityCard member)
+	{
+		this.TeamComposition.Add(member);
+	}
+	public void RemoveMemberFromTeam(EntityCard member)
+	{
+		this.TeamComposition.Remove(member);
+	}	
 }
