@@ -1,0 +1,219 @@
+[gd_scene load_steps=15 format=3 uid="uid://dng4oedi03int"]
+
+[ext_resource type="Texture2D" uid="uid://bnwamrp7smaca" path="res://Placeholder/Assets/MenuAssets/Book_Open.png" id="1_fyfm0"]
+[ext_resource type="FontFile" uid="uid://okfdon5v3e7q" path="res://Placeholder/Assets/Font/monogram/ttf/monogram-extended.ttf" id="1_hcc3c"]
+[ext_resource type="Script" path="res://Scripts/Menu/Book/PreGamePage.cs" id="1_r1tm6"]
+[ext_resource type="Texture2D" uid="uid://b1gmr0clpuhx1" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/26.png" id="2_vrvk2"]
+[ext_resource type="Texture2D" uid="uid://cdbnu8i1tk2ky" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/8.png" id="3_8pbdo"]
+[ext_resource type="Texture2D" uid="uid://dgixtabmli7di" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/9.png" id="4_ev1cm"]
+[ext_resource type="Texture2D" uid="uid://c5c2th8hs1syc" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/27.png" id="5_dajyv"]
+[ext_resource type="FontFile" uid="uid://bbwdc2gnuf2ed" path="res://Placeholder/Assets/Font/monogram/ttf/monogram.ttf" id="6_bobhi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f3ddt"]
+font = ExtResource("1_hcc3c")
+font_size = 65
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_26l2c"]
+font = ExtResource("1_hcc3c")
+font_size = 50
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_24yx4"]
+font = ExtResource("1_hcc3c")
+font_size = 33
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7msnd"]
+font = ExtResource("1_hcc3c")
+font_size = 33
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqrgk"]
+font = ExtResource("6_bobhi")
+font_size = 80
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_utbfh"]
+font = ExtResource("1_hcc3c")
+font_size = 35
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[node name="PreGamePage" type="Control" node_paths=PackedStringArray("playerName", "partyName", "infoLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1tm6")
+playerName = NodePath("SetupPage/VBoxContainer/ui_playerName")
+partyName = NodePath("SetupPage/VBoxContainer/ui_partyName")
+infoLabel = NodePath("SetupPage/VBoxContainer/lbl_info")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="OpenBook" type="TextureRect" parent="BoxContainer"]
+custom_minimum_size = Vector2(0, 650)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+texture = ExtResource("1_fyfm0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SetupPage" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 11.0
+offset_top = -3.0
+offset_right = 51.0
+offset_bottom = 37.0
+
+[node name="lbl_pregame" type="Label" parent="SetupPage"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 134.0
+offset_top = 46.0
+offset_right = 605.0
+offset_bottom = 113.0
+text = "Before we begin"
+label_settings = SubResource("LabelSettings_f3ddt")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="SetupPage/lbl_pregame"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 129.0
+offset_top = 47.0
+offset_right = 330.0
+offset_bottom = 86.0
+texture = ExtResource("2_vrvk2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SetupPage"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 250.0
+offset_right = 528.0
+offset_bottom = 403.0
+alignment = 1
+
+[node name="lbl_playerName" type="Label" parent="SetupPage/VBoxContainer"]
+layout_mode = 2
+text = "What's your name?"
+label_settings = SubResource("LabelSettings_26l2c")
+
+[node name="ui_playerName" type="LineEdit" parent="SetupPage/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "max. 35 Characters..."
+max_length = 35
+
+[node name="lbl_partyName" type="Label" parent="SetupPage/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "What's your parties name?"
+label_settings = SubResource("LabelSettings_24yx4")
+autowrap_mode = 3
+
+[node name="ui_partyName" type="LineEdit" parent="SetupPage/VBoxContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "max. 35 Characters..."
+max_length = 35
+
+[node name="lbl_info" type="Label" parent="SetupPage/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_24yx4")
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="SetupPage/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="btn_start" type="TextureButton" parent="SetupPage/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_8pbdo")
+texture_pressed = ExtResource("4_ev1cm")
+texture_hover = ExtResource("4_ev1cm")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="SetupPage/VBoxContainer/btn_start"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Click here to start"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SetupPage/VBoxContainer/btn_start"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_dajyv")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="StorySnippet" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 19.0
+offset_top = -3.0
+offset_right = 59.0
+offset_bottom = 37.0
+
+[node name="lbl_story" type="Label" parent="StorySnippet"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 668.0
+offset_top = 42.0
+offset_right = 1139.0
+offset_bottom = 109.0
+text = "Story"
+label_settings = SubResource("LabelSettings_iqrgk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="StorySnippet/lbl_story"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 129.0
+offset_top = 51.0
+offset_right = 330.0
+offset_bottom = 90.0
+texture = ExtResource("2_vrvk2")
+
+[node name="lbl_text" type="Label" parent="StorySnippet"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 672.0
+offset_top = 131.0
+offset_right = 1116.0
+offset_bottom = 575.0
+text = "After a fierce storm battered our vessel, we lost control, washing ashore on what appears to be a vast, crater island
+reclaimed by nature.
+
+With our ship gone, my two Companions and i have no choice but to make do here for the time being. The island seems eerily abandoned, and I can't help but hope it remains that way."
+label_settings = SubResource("LabelSettings_utbfh")
+autowrap_mode = 2
+
+[connection signal="pressed" from="SetupPage/VBoxContainer/btn_start" to="." method="onClickStart"]

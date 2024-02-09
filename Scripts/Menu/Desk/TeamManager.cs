@@ -5,9 +5,6 @@ using System.Linq;
 
 public partial class TeamManager : Control
 {
-	private const string DELVER_RESOURCE_PATH = "res://Resources/Delvers";
-
-
 
 	[ExportGroup("Dependencies")]
 	[Export] private ItemList availableMembers, selectedMembers;
@@ -20,7 +17,7 @@ public partial class TeamManager : Control
 	public override void _Ready()
 	{
 		//bm = GetTree().Root.GetNode<ButtonManager>("GameManager/ButtonManager");
-		availableDelvers = LoadEntitiesFromDirectory(DELVER_RESOURCE_PATH);
+		availableDelvers = Helpers.LoadEntitiesFromDirectory("Delvers");
 		foreach(EntityCard card in availableDelvers)
 		{
 			//GD.Print(card.Name);
@@ -121,33 +118,10 @@ public partial class TeamManager : Control
 		delverDTX.Text = "DTX: " + (cardData.Dexterity  <= 99 ? cardData.Dexterity.ToString() : "??");
 	}
 
-	//Todo: Maybe export this to a seperate "Helpers" script or something? May be  to load other types of entities from directory into lists?
-	private List<EntityCard> LoadEntitiesFromDirectory(string path)
-	{
-		List<EntityCard> availableEntities = new List<EntityCard>();
-		using var dir = DirAccess.Open(path);
-		if (dir != null)
-		{
-			foreach(string fileName in dir.GetFiles())
-			{
-				//GD.Print($"Found file: {fileName}");
-				string fullResourcePath = DELVER_RESOURCE_PATH + "/" + fileName;
-				availableEntities.Add(GD.Load<EntityCard>(fullResourcePath));
-			}
-		}
-		else
-		{
-			GD.PrintErr("An error occurred when trying to access the path.");
-			return null;
-		}
-
-		return availableEntities;
-
-	}
 
 	public void SwitchToMainMenu()
 	{
-		player.SetPlayerTeam(teamComposition);
+		//player.SetPlayerTeam(teamComposition);
 		//bm.SwitchToMainMenu();
 	}
 }

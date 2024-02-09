@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=3 uid="uid://yay1r35radu"]
+
+[ext_resource type="Texture2D" uid="uid://deq8rvv7830l8" path="res://Placeholder/Assets/MenuAssets/GUI/Paper/2.png" id="1_4hean"]
+[ext_resource type="Texture2D" uid="uid://qo2jn5ioh81b" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/11.png" id="2_tbn48"]
+[ext_resource type="Texture2D" uid="uid://jwrgyj4bvyb1" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/8.png" id="3_ttbrq"]
+[ext_resource type="Texture2D" uid="uid://c5c2th8hs1syc" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/27.png" id="4_2pgye"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gqiwr"]
+font_size = 71
+
+[sub_resource type="LabelSettings" id="LabelSettings_pj6ax"]
+font_size = 21
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8isxv"]
+font_size = 21
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[node name="WorldMap" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_map" type="Label" parent="."]
+layout_mode = 0
+offset_left = 173.0
+offset_top = -8.0
+offset_right = 547.0
+offset_bottom = 92.0
+text = "World Map"
+label_settings = SubResource("LabelSettings_gqiwr")
+
+[node name="WorldMap" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 99.0
+offset_right = 1239.0
+offset_bottom = 684.0
+texture = ExtResource("1_4hean")
+stretch_mode = 4
+
+[node name="lbl_island_name" type="Label" parent="WorldMap"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 92.0
+offset_right = 270.0
+offset_bottom = 125.0
+text = "Island: Rimor Haven"
+label_settings = SubResource("LabelSettings_pj6ax")
+
+[node name="Home" type="TextureButton" parent="WorldMap"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 418.0
+offset_right = 151.0
+offset_bottom = 458.0
+texture_normal = ExtResource("2_tbn48")
+texture_hover = ExtResource("3_ttbrq")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="WorldMap/Home"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -14.0
+offset_right = 113.0
+offset_bottom = 19.0
+texture = ExtResource("4_2pgye")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="WorldMap/Home"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -26.0
+offset_right = 77.0
+offset_bottom = 7.0
+text = "Settlement"
+label_settings = SubResource("LabelSettings_8isxv")
+
+[node name="cave" type="TextureButton" parent="WorldMap"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 260.0
+offset_right = 277.0
+offset_bottom = 300.0
+texture_normal = ExtResource("2_tbn48")
+texture_hover = ExtResource("3_ttbrq")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="WorldMap/cave"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -14.0
+offset_right = 113.0
+offset_bottom = 19.0
+texture = ExtResource("4_2pgye")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="WorldMap/cave"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = -26.0
+offset_right = 108.0
+offset_bottom = 7.0
+text = "Cave Entrance #1"
+label_settings = SubResource("LabelSettings_8isxv")
+horizontal_alignment = 1
+
+[node name="ruin" type="TextureButton" parent="WorldMap"]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 300.0
+offset_right = 653.0
+offset_bottom = 340.0
+texture_normal = ExtResource("2_tbn48")
+texture_hover = ExtResource("3_ttbrq")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="WorldMap/ruin"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -14.0
+offset_right = 113.0
+offset_bottom = 19.0
+texture = ExtResource("4_2pgye")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="WorldMap/ruin"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = -26.0
+offset_right = 108.0
+offset_bottom = 7.0
+text = "Abandoned Ruin"
+label_settings = SubResource("LabelSettings_8isxv")
+horizontal_alignment = 1

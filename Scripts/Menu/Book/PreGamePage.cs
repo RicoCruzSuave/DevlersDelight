@@ -6,13 +6,10 @@ public partial class PreGamePage : Control
 	[Export] private LineEdit playerName, partyName;
 	[Export] private Label infoLabel;
 
-	[Export] private Player player;
-
-	private ButtonManager bm;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		bm = GetTree().Root.GetNode<ButtonManager>("StartMenu/ButtonManager");
+		//autoload_Player = GetNode<Player>("/root/Player");
 	}
 
 	public void onClickStart()
@@ -23,8 +20,7 @@ public partial class PreGamePage : Control
 			return;
 		}
 
-		//Set Playername and stuff
-		player.PlayerName = playerName.Text;
-		bm.SwitchToMainMenu();
+		//Set Playername and create Player
+		PlayerData.CreatePlayer(playerName.Text);
 	}
 }

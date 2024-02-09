@@ -1,0 +1,574 @@
+[gd_scene load_steps=27 format=3 uid="uid://cjenbxlsvqo8r"]
+
+[ext_resource type="Texture2D" uid="uid://c0wwuneqh6u3p" path="res://Placeholder/Assets/MenuAssets/GUI/Paper/0.png" id="1_s1ui8"]
+[ext_resource type="Texture2D" uid="uid://cdbnu8i1tk2ky" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/8.png" id="2_506c7"]
+[ext_resource type="Texture2D" uid="uid://dgixtabmli7di" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/9.png" id="3_07qmx"]
+[ext_resource type="FontFile" uid="uid://okfdon5v3e7q" path="res://Placeholder/Assets/Font/monogram/ttf/monogram-extended.ttf" id="4_hdjxl"]
+[ext_resource type="Texture2D" uid="uid://c5c2th8hs1syc" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/27.png" id="5_lcu56"]
+[ext_resource type="Texture2D" uid="uid://b1gmr0clpuhx1" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/26.png" id="6_kvwwk"]
+[ext_resource type="Texture2D" uid="uid://cbrdy1fhp5xy1" path="res://Placeholder/Assets/MenuAssets/GUI/Paper/1.png" id="7_id1py"]
+[ext_resource type="Script" path="res://Scenes/RecruitingTab.cs" id="8_rhn3t"]
+[ext_resource type="Resource" uid="uid://boghvra7ljr7g" path="res://Resources/player.tres" id="9_6c0jl"]
+[ext_resource type="Texture2D" uid="uid://dvtsqbl8u3tqy" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/3.png" id="10_j78l7"]
+[ext_resource type="Texture2D" uid="uid://dyt6lpdej5ae" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/16.png" id="11_m1trr"]
+[ext_resource type="Texture2D" uid="uid://d25ykgigieejx" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/5.png" id="12_3grws"]
+[ext_resource type="Texture2D" uid="uid://5kvqu4benut4" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/5.png" id="13_l21pi"]
+[ext_resource type="Texture2D" uid="uid://brng3agbybxak" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/7.png" id="14_dywvg"]
+[ext_resource type="Texture2D" uid="uid://dy5j4kf753dxg" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/10.png" id="15_hlwdl"]
+[ext_resource type="Texture2D" uid="uid://cs7b5neqte1lr" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/5.png" id="16_c41b2"]
+[ext_resource type="Texture2D" uid="uid://qo2jn5ioh81b" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/11.png" id="17_cn6k4"]
+[ext_resource type="Texture2D" uid="uid://jwrgyj4bvyb1" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/8.png" id="18_jj1ib"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_spbb2"]
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgbek"]
+font_size = 31
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7msnd"]
+font = ExtResource("4_hdjxl")
+font_size = 33
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_we6hi"]
+font_size = 26
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3rvxp"]
+font_size = 31
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nqe02"]
+font = ExtResource("4_hdjxl")
+font_size = 49
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ri15"]
+font = ExtResource("4_hdjxl")
+font_size = 48
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wk2g7"]
+font = ExtResource("4_hdjxl")
+font_size = 24
+font_color = Color(0.764706, 0.537255, 0.364706, 1)
+
+[node name="TeamManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_teamManager" type="Label" parent="."]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 12.0
+offset_right = 1060.0
+offset_bottom = 92.0
+text = "Team Manager"
+label_settings = SubResource("LabelSettings_spbb2")
+
+[node name="Primary" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 22.0
+offset_right = 599.0
+offset_bottom = 710.0
+texture = ExtResource("1_s1ui8")
+stretch_mode = 4
+
+[node name="Overview" type="Control" parent="Primary"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_Overview" type="Label" parent="Primary/Overview"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 55.0
+offset_right = 418.0
+offset_bottom = 102.0
+text = "Overview"
+label_settings = SubResource("LabelSettings_wgbek")
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Primary/Overview"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 139.0
+offset_right = 447.0
+offset_bottom = 554.0
+
+[node name="btn_createTeam" type="TextureButton" parent="Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Overview/ButtonContainer/btn_createTeam"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Create a new Team (0/1)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Overview/ButtonContainer/btn_createTeam"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_editTeam" type="TextureButton" parent="Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Overview/ButtonContainer/btn_editTeam"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Edit a Team"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Overview/ButtonContainer/btn_editTeam"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_manageMembers" type="TextureButton" parent="Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Overview/ButtonContainer/btn_manageMembers"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Manage Members (0/8)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Overview/ButtonContainer/btn_manageMembers"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_expeditions" type="TextureButton" parent="Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Overview/ButtonContainer/btn_expeditions"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "View Expeditions (0)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Overview/ButtonContainer/btn_expeditions"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_recruit" type="TextureButton" parent="Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Overview/ButtonContainer/btn_recruit"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Recruit Members (0)"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Overview/ButtonContainer/btn_recruit"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="endoflist" type="TextureRect" parent="Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture = ExtResource("6_kvwwk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="home_stats" type="VBoxContainer" parent="Primary/Overview"]
+z_index = 1
+layout_mode = 0
+offset_left = 762.0
+offset_top = 148.0
+offset_right = 1136.0
+offset_bottom = 615.0
+metadata/_edit_group_ = true
+
+[node name="lbl_activeExpeditions" type="Label" parent="Primary/Overview/home_stats"]
+layout_mode = 2
+text = "0 active Expeditions"
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="lbl_finishedExpeditions" type="Label" parent="Primary/Overview/home_stats"]
+layout_mode = 2
+text = "0 finished Expeditions"
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="lbl_deaths" type="Label" parent="Primary/Overview/home_stats"]
+layout_mode = 2
+text = "0 characters died (so far)"
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="lbl_info" type="Label" parent="Primary/Overview/home_stats"]
+layout_mode = 2
+text = "other infos here..."
+label_settings = SubResource("LabelSettings_we6hi")
+
+[node name="Recruits" type="Control" parent="Primary"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_recruited" type="Label" parent="Primary/Recruits"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 52.0
+offset_right = 349.0
+offset_bottom = 100.0
+text = "Recruited Members (0/4)"
+label_settings = SubResource("LabelSettings_3rvxp")
+
+[node name="recruitedMembers" type="ItemList" parent="Primary/Recruits"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 100.0
+offset_right = 476.0
+offset_bottom = 548.0
+
+[node name="btn_removeRecruit" type="TextureButton" parent="Primary/Recruits"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 0
+offset_left = 39.0
+offset_top = 555.0
+offset_right = 86.0
+offset_bottom = 603.0
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Recruits/btn_removeRecruit"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Remove Recruit"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Recruits/btn_removeRecruit"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_goBack3" type="TextureButton" parent="Primary/Recruits"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 0
+offset_left = 343.0
+offset_top = 555.0
+offset_right = 390.0
+offset_bottom = 603.0
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Recruits/btn_goBack3"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Go Back"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Recruits/btn_goBack3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Secondary" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 101.0
+offset_right = 1249.0
+offset_bottom = 708.0
+texture = ExtResource("7_id1py")
+stretch_mode = 4
+
+[node name="RecruitingTab" type="Control" parent="Secondary" node_paths=PackedStringArray("lbl_noRecruits", "recruitBtnLabel", "recruitCount", "recruitPreviewCard", "recruitedMembers", "delverName", "delverHP", "delverDescription", "delverATK", "delverDEF", "delverDTX", "delverIcon")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_rhn3t")
+player = ExtResource("9_6c0jl")
+lbl_noRecruits = NodePath("")
+recruitBtnLabel = NodePath("")
+recruitCount = NodePath("")
+recruitPreviewCard = NodePath("")
+recruitedMembers = NodePath("")
+delverName = NodePath("")
+delverHP = NodePath("")
+delverDescription = NodePath("")
+delverATK = NodePath("")
+delverDEF = NodePath("")
+delverDTX = NodePath("")
+delverIcon = NodePath("")
+
+[node name="NoDelver" type="Label" parent="Secondary/RecruitingTab"]
+visible = false
+layout_mode = 0
+offset_left = 67.0
+offset_top = 60.0
+offset_right = 462.0
+offset_bottom = 549.0
+text = "There are no recruits. Come back later!"
+label_settings = SubResource("LabelSettings_nqe02")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DelverPreview" type="Control" parent="Secondary/RecruitingTab"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_name" type="Label" parent="Secondary/RecruitingTab/DelverPreview"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 60.0
+offset_right = 458.0
+offset_bottom = 144.0
+text = "<Delver_Name>"
+label_settings = SubResource("LabelSettings_8ri15")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ProfileBorder" type="TextureRect" parent="Secondary/RecruitingTab/DelverPreview"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 146.0
+offset_right = 350.0
+offset_bottom = 301.0
+texture = ExtResource("10_j78l7")
+stretch_mode = 4
+
+[node name="ProfilePic" type="TextureRect" parent="Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 130.0
+offset_bottom = 130.0
+texture = ExtResource("11_m1trr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="itemslot1" type="TextureRect" parent="Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
+layout_mode = 0
+offset_left = -109.0
+offset_top = 115.0
+offset_right = -42.0
+offset_bottom = 182.0
+texture = ExtResource("12_3grws")
+
+[node name="itemslot2" type="TextureRect" parent="Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 172.0
+offset_right = 19.0
+offset_bottom = 239.0
+texture = ExtResource("12_3grws")
+
+[node name="itemslot3" type="TextureRect" parent="Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 172.0
+offset_right = 202.0
+offset_bottom = 239.0
+texture = ExtResource("12_3grws")
+
+[node name="itemslot4" type="TextureRect" parent="Secondary/RecruitingTab/DelverPreview/ProfileBorder"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 115.0
+offset_right = 256.0
+offset_bottom = 182.0
+texture = ExtResource("12_3grws")
+
+[node name="btn_previous" type="TextureButton" parent="Secondary/RecruitingTab/DelverPreview"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 98.0
+offset_top = 189.0
+offset_right = 156.0
+offset_bottom = 247.0
+texture_normal = ExtResource("13_l21pi")
+texture_hover = ExtResource("14_dywvg")
+stretch_mode = 4
+
+[node name="btn_next" type="TextureButton" parent="Secondary/RecruitingTab/DelverPreview"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 380.0
+offset_top = 189.0
+offset_right = 438.0
+offset_bottom = 247.0
+texture_normal = ExtResource("13_l21pi")
+texture_hover = ExtResource("14_dywvg")
+stretch_mode = 4
+flip_h = true
+
+[node name="Description" type="Label" parent="Secondary/RecruitingTab/DelverPreview"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 401.0
+offset_right = 446.0
+offset_bottom = 539.0
+text = "\"I am built different! From a young agei wanted to go delving. But my mum always made me do the dishes instead.\""
+label_settings = SubResource("LabelSettings_wk2g7")
+autowrap_mode = 3
+
+[node name="lbl_Stats" type="Label" parent="Secondary/RecruitingTab/DelverPreview"]
+layout_mode = 2
+offset_left = 83.0
+offset_top = 399.0
+offset_right = 226.0
+offset_bottom = 422.0
+text = "Statistics:"
+label_settings = SubResource("LabelSettings_wk2g7")
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Secondary/RecruitingTab/DelverPreview"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 424.0
+offset_right = 226.0
+offset_bottom = 503.0
+
+[node name="HP" type="Label" parent="Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
+layout_mode = 2
+text = "Max HP: 0"
+label_settings = SubResource("LabelSettings_wk2g7")
+autowrap_mode = 3
+
+[node name="ATK" type="Label" parent="Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
+layout_mode = 2
+text = "ATK: 0"
+label_settings = SubResource("LabelSettings_wk2g7")
+autowrap_mode = 3
+
+[node name="DEF" type="Label" parent="Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
+layout_mode = 2
+text = "DEF: 0"
+label_settings = SubResource("LabelSettings_wk2g7")
+autowrap_mode = 3
+
+[node name="DTX" type="Label" parent="Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
+layout_mode = 2
+text = "DTX: 0"
+label_settings = SubResource("LabelSettings_wk2g7")
+autowrap_mode = 3
+
+[node name="btn_accept" type="TextureButton" parent="Secondary/RecruitingTab/DelverPreview"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 332.0
+offset_right = 258.0
+offset_bottom = 372.0
+texture_normal = ExtResource("15_hlwdl")
+texture_hover = ExtResource("16_c41b2")
+stretch_mode = 4
+
+[node name="btn_deny" type="TextureButton" parent="Secondary/RecruitingTab/DelverPreview"]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 332.0
+offset_right = 327.0
+offset_bottom = 372.0
+texture_normal = ExtResource("17_cn6k4")
+texture_hover = ExtResource("18_jj1ib")
+stretch_mode = 4
+
+[connection signal="pressed" from="Primary/Recruits/btn_removeRecruit" to="Secondary/RecruitingTab" method="RemoveRecruit"]
+[connection signal="pressed" from="Secondary/RecruitingTab/DelverPreview/btn_previous" to="Secondary/RecruitingTab" method="PreviousDelver"]
+[connection signal="pressed" from="Secondary/RecruitingTab/DelverPreview/btn_next" to="Secondary/RecruitingTab" method="NextDelver"]
+[connection signal="pressed" from="Secondary/RecruitingTab/DelverPreview/btn_accept" to="Secondary/RecruitingTab" method="AcceptDelver"]
+[connection signal="pressed" from="Secondary/RecruitingTab/DelverPreview/btn_deny" to="Secondary/RecruitingTab" method="DenyDelver"]

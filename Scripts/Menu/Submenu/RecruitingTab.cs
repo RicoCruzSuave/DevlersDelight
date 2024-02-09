@@ -61,7 +61,7 @@ public partial class RecruitingTab : Control
 		EntityCard recruitedMember = availableDelvers.ElementAt(currDelverIdx);
 		
 		recruitedMembers.AddItem(recruitedMember.Name, recruitedMember.Texture);
-		player.AddMemberToTeam(recruitedMember);
+		//player.AddMemberToTeam(recruitedMember);
 		availableDelvers.Remove(recruitedMember);
 		recruitCount.Text = "Recruited Members (" + recruitedMembers.ItemCount.ToString() + "/" + MAXIMUM_MEMBERS_ALLOWED.ToString() +  " )";
 		
@@ -83,7 +83,7 @@ public partial class RecruitingTab : Control
 
 		EntityCard member = origCardList.First(item => item.Name == recruitedMembers.GetItemText(selectedRecruits[0]));
 
-		player.RemoveMemberFromTeam(member);
+		//player.RemoveMemberFromTeam(member);
 		recruitedMembers.RemoveItem(selectedRecruits[0]);
 
 		//for now add member back to availableDelvers list

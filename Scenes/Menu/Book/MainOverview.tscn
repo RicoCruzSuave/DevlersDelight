@@ -1,0 +1,531 @@
+[gd_scene load_steps=23 format=3 uid="uid://t1qrk0gat0o3"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/Book/MainOverview.cs" id="1_8s36l"]
+[ext_resource type="Texture2D" uid="uid://bnwamrp7smaca" path="res://Placeholder/Assets/MenuAssets/Book_Open.png" id="2_8vcdt"]
+[ext_resource type="FontFile" uid="uid://bbwdc2gnuf2ed" path="res://Placeholder/Assets/Font/monogram/ttf/monogram.ttf" id="3_mrv7t"]
+[ext_resource type="Texture2D" uid="uid://b1gmr0clpuhx1" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/26.png" id="4_dha1a"]
+[ext_resource type="Texture2D" uid="uid://unfeupivltw7" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/2.png" id="5_xfcm3"]
+[ext_resource type="FontFile" uid="uid://okfdon5v3e7q" path="res://Placeholder/Assets/Font/monogram/ttf/monogram-extended.ttf" id="6_kgq6o"]
+[ext_resource type="Texture2D" uid="uid://brqj0g6yuefny" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/17.png" id="7_yd7yp"]
+[ext_resource type="Texture2D" uid="uid://d2gtq68bpp631" path="res://Placeholder/Assets/MenuAssets/GUI/7 Day & Night Cycle/1.png" id="8_o88h4"]
+[ext_resource type="Texture2D" uid="uid://d37revwn4gh7e" path="res://Placeholder/Assets/MenuAssets/GUI/7 Day & Night Cycle/2.png" id="9_ypj8o"]
+[ext_resource type="Texture2D" uid="uid://c46ruq2rp03cf" path="res://Placeholder/Assets/MenuAssets/GUI/7 Day & Night Cycle/8.png" id="10_bcv6j"]
+[ext_resource type="Texture2D" uid="uid://ilh0h0igw57a" path="res://Placeholder/Assets/MenuAssets/GUI/7 Day & Night Cycle/13.png" id="11_4bdqx"]
+[ext_resource type="Texture2D" uid="uid://b4u0nfu7e8hjf" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/6.png" id="12_oqo0v"]
+[ext_resource type="Texture2D" uid="uid://cdbnu8i1tk2ky" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/8.png" id="13_rudfe"]
+[ext_resource type="Texture2D" uid="uid://dgixtabmli7di" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/9.png" id="14_ciweg"]
+[ext_resource type="Texture2D" uid="uid://c5c2th8hs1syc" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/27.png" id="15_akhnh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqrgk"]
+font = ExtResource("3_mrv7t")
+font_size = 80
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_20qg1"]
+font = ExtResource("6_kgq6o")
+font_size = 33
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+outline_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_deelb"]
+font = ExtResource("3_mrv7t")
+font_size = 25
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0qi5j"]
+font = ExtResource("6_kgq6o")
+font_size = 32
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8q31"]
+font = ExtResource("6_kgq6o")
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6ihq"]
+font = ExtResource("6_kgq6o")
+font_size = 32
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7msnd"]
+font = ExtResource("6_kgq6o")
+font_size = 33
+font_color = Color(0.568627, 0.4, 0.356863, 1)
+
+[node name="MainOverview" type="Control" node_paths=PackedStringArray("lbl_playername", "lbl_money", "lbl_exp")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8s36l")
+lbl_playername = NodePath("PlayerInfo/ProfileSpriteBorder/VBoxContainer/PlayerName")
+lbl_money = NodePath("PlayerInfo/ProfileSpriteBorder/VBoxContainer/Money")
+lbl_exp = NodePath("PlayerInfo/ProfileSpriteBorder/VBoxContainer/Experience")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="OpenBook" type="TextureRect" parent="BoxContainer"]
+custom_minimum_size = Vector2(0, 650)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+texture = ExtResource("2_8vcdt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PlayerInfo" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 1.0
+offset_right = 52.0
+offset_bottom = 41.0
+
+[node name="lbl_profile" type="Label" parent="PlayerInfo"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 134.0
+offset_top = 46.0
+offset_right = 605.0
+offset_bottom = 113.0
+text = "Profile"
+label_settings = SubResource("LabelSettings_iqrgk")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PlayerInfo/lbl_profile"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 129.0
+offset_top = 47.0
+offset_right = 330.0
+offset_bottom = 86.0
+texture = ExtResource("4_dha1a")
+
+[node name="ProfileSpriteBorder" type="TextureRect" parent="PlayerInfo"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 190.0
+offset_top = 152.0
+offset_right = 364.0
+offset_bottom = 326.0
+texture = ExtResource("5_xfcm3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerInfo/ProfileSpriteBorder"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 5.0
+offset_right = 429.0
+offset_bottom = 174.0
+metadata/_edit_group_ = true
+
+[node name="PlayerName" type="Label" parent="PlayerInfo/ProfileSpriteBorder/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "<Playername>"
+label_settings = SubResource("LabelSettings_20qg1")
+
+[node name="RankName" type="Label" parent="PlayerInfo/ProfileSpriteBorder/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "Rookie"
+label_settings = SubResource("LabelSettings_deelb")
+
+[node name="Money" type="Label" parent="PlayerInfo/ProfileSpriteBorder/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "Money:0"
+label_settings = SubResource("LabelSettings_deelb")
+
+[node name="Experience" type="Label" parent="PlayerInfo/ProfileSpriteBorder/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "Experience: 0"
+label_settings = SubResource("LabelSettings_deelb")
+
+[node name="PopCount" type="Label" parent="PlayerInfo/ProfileSpriteBorder/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "Population: 0/10"
+label_settings = SubResource("LabelSettings_deelb")
+
+[node name="PlayerSprite" type="TextureRect" parent="PlayerInfo/ProfileSpriteBorder"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 153.0
+texture = ExtResource("7_yd7yp")
+
+[node name="TimeVisualizeContainer" type="TextureRect" parent="PlayerInfo"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 399.0
+offset_right = 282.0
+offset_bottom = 526.0
+texture = ExtResource("8_o88h4")
+metadata/_edit_group_ = true
+
+[node name="bg" type="TextureRect" parent="PlayerInfo/TimeVisualizeContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ypj8o")
+
+[node name="sun_moon_sprite" type="TextureRect" parent="PlayerInfo/TimeVisualizeContainer"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 18.0
+offset_right = 110.0
+offset_bottom = 69.0
+texture = ExtResource("10_bcv6j")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="cloud_sprite" type="TextureRect" parent="PlayerInfo/TimeVisualizeContainer"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 65.0
+offset_right = 59.0
+offset_bottom = 89.0
+texture = ExtResource("11_4bdqx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="cloud_sprite2" type="TextureRect" parent="PlayerInfo/TimeVisualizeContainer/cloud_sprite"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 7.0
+offset_right = 91.0
+offset_bottom = 47.0
+texture = ExtResource("11_4bdqx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="lbl_day_night" type="Label" parent="PlayerInfo/TimeVisualizeContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = -27.0
+offset_right = 119.0
+offset_bottom = 2.0
+text = "Day"
+label_settings = SubResource("LabelSettings_0qi5j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerInfo/TimeVisualizeContainer"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 125.0
+offset_right = 118.0
+offset_bottom = 175.0
+theme_override_constants/separation = -1
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="weather_type" type="Label" parent="PlayerInfo/TimeVisualizeContainer/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "<sunny/cloudy/etc>"
+label_settings = SubResource("LabelSettings_g8q31")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="date" type="Label" parent="PlayerInfo/TimeVisualizeContainer/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "dd/mm/yyyy"
+label_settings = SubResource("LabelSettings_g8q31")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="PlayerInfo/TimeVisualizeContainer/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+text = "hh:mm:ss"
+label_settings = SubResource("LabelSettings_g8q31")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="team_settlement_stats" type="NinePatchRect" parent="PlayerInfo"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 362.0
+offset_right = 557.0
+offset_bottom = 594.0
+texture = ExtResource("12_oqo0v")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="Label" type="Label" parent="PlayerInfo/team_settlement_stats"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_right = 230.0
+offset_bottom = 230.0
+text = "Settlement/Team
+overview"
+label_settings = SubResource("LabelSettings_j6ihq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overview" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_profile2" type="Label" parent="Overview"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 668.0
+offset_top = 46.0
+offset_right = 1139.0
+offset_bottom = 113.0
+text = "Overview"
+label_settings = SubResource("LabelSettings_iqrgk")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Overview/lbl_profile2"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 129.0
+offset_top = 47.0
+offset_right = 330.0
+offset_bottom = 86.0
+texture = ExtResource("4_dha1a")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Overview"]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 159.0
+offset_right = 1065.0
+offset_bottom = 574.0
+
+[node name="btn_TeamManager" type="TextureButton" parent="Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("13_rudfe")
+texture_pressed = ExtResource("14_ciweg")
+texture_hover = ExtResource("14_ciweg")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Overview/ButtonContainer/btn_TeamManager"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Team Manager"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overview/ButtonContainer/btn_TeamManager"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("15_akhnh")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_start" type="TextureButton" parent="Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("13_rudfe")
+texture_pressed = ExtResource("14_ciweg")
+texture_hover = ExtResource("14_ciweg")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Overview/ButtonContainer/btn_start"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Start a run"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overview/ButtonContainer/btn_start"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("15_akhnh")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_settlement" type="TextureButton" parent="Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("13_rudfe")
+texture_pressed = ExtResource("14_ciweg")
+texture_hover = ExtResource("14_ciweg")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Overview/ButtonContainer/btn_settlement"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Settlement"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overview/ButtonContainer/btn_settlement"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("15_akhnh")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_inventory" type="TextureButton" parent="Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("13_rudfe")
+texture_pressed = ExtResource("14_ciweg")
+texture_hover = ExtResource("14_ciweg")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Overview/ButtonContainer/btn_inventory"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overview/ButtonContainer/btn_inventory"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("15_akhnh")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_compendium" type="TextureButton" parent="Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("13_rudfe")
+texture_pressed = ExtResource("14_ciweg")
+texture_hover = ExtResource("14_ciweg")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Overview/ButtonContainer/btn_compendium"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 266.0
+offset_bottom = 32.0
+text = "Delvers Compendium"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overview/ButtonContainer/btn_compendium"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("15_akhnh")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_map" type="TextureButton" parent="Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("13_rudfe")
+texture_pressed = ExtResource("14_ciweg")
+texture_hover = ExtResource("14_ciweg")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Overview/ButtonContainer/btn_map"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Map Overview"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overview/ButtonContainer/btn_map"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("15_akhnh")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="btn_quit" type="TextureButton" parent="Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("13_rudfe")
+texture_pressed = ExtResource("14_ciweg")
+texture_hover = ExtResource("14_ciweg")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Overview/ButtonContainer/btn_quit"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overview/ButtonContainer/btn_quit"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("15_akhnh")
+expand_mode = 3
+stretch_mode = 4
+
+[connection signal="visibility_changed" from="." to="." method="OnMenuVisible"]

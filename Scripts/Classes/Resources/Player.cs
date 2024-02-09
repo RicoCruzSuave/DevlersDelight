@@ -12,9 +12,10 @@ public partial class Player : Resource
 	//Todo: Since export is not supported, default members must be set somewhere else
 	private List<EntityCard> TeamComposition = new List<EntityCard>(); 
 
+
 	public int GetTeamMemberCount()
 	{
-		return TeamComposition.Count();
+		return this.TeamComposition.Count();
 	}
 	public void SetPlayerTeam(List<EntityCard> team)
 	{
@@ -28,4 +29,5 @@ public partial class Player : Resource
 	{
 		this.TeamComposition.Remove(member);
 	}	
+
 }
