@@ -18,7 +18,7 @@ public partial class PlayerData : Node
     //returns null if non found
     public static Player LoadPlayerFile()
     {
-        return Helpers.LoadPlayerFileFromDirectory(0); //Take the first found save (for now)
+        return Helpers.LoadPlayerFileFromDirectory(0); //Take the first save found (for now)
     }
 
 }

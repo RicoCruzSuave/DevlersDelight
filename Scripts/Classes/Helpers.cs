@@ -27,14 +27,14 @@ public partial class Helpers : Node
 	//Same as above for Player Resources (aka Save Files)
 	public static List<Player> LoadPlayerFilesFromDirectory(string resFolder = "")
 	{
-		List<Resource> entitylist = LoadResourcesFromDirectory(resFolder);
-		return entitylist.ConvertAll(x => (Player)x);
+		List<Resource> PlayerFileList = LoadResourcesFromDirectory(resFolder);
+		return PlayerFileList.ConvertAll(x => (Player)x);
 	}
 	//Single Variant with index
 	public static Player LoadPlayerFileFromDirectory(int idx, string resFolder = "")
 	{
-		List<Player> availableEntities = LoadPlayerFilesFromDirectory(resFolder);
-		Player savefile = availableEntities.ElementAtOrDefault(idx);
+		List<Player> PlayerFileList = LoadPlayerFilesFromDirectory(resFolder);
+		Player savefile = PlayerFileList.ElementAtOrDefault(idx);
 
 		return savefile; //Returns null if no entity was found
 	}
@@ -45,7 +45,7 @@ public partial class Helpers : Node
 	//If no Foldername is given take Root-Path
 	public static List<Resource> LoadResourcesFromDirectory(string resFolder = "")
 	{
-		List<Resource> availableEntities = new List<Resource>();
+		List<Resource> availableResources = new List<Resource>();
 		using var dir = DirAccess.Open(ROOT_RESOURCE_PATH + resFolder);
 		if (dir != null)
 		{
@@ -53,7 +53,7 @@ public partial class Helpers : Node
 			{
 				//GD.Print($"Found file: {fileName}");
 				string fullResourcePath = ROOT_RESOURCE_PATH + resFolder + "/" + fileName;
-				availableEntities.Add(GD.Load<Resource>(fullResourcePath));
+				availableResources.Add(GD.Load<Resource>(fullResourcePath));
 			}
 		}
 		else
@@ -62,6 +62,6 @@ public partial class Helpers : Node
 			return null;
 		}
 
-		return availableEntities;
+		return availableResources;
 	}
 }

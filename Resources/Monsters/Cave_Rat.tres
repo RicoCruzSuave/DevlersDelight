@@ -1,15 +1,13 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b4l23i72alikg"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://v5dv8hcxktbt"]
 
-[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_ouots"]
-[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="2_af2lw"]
+[ext_resource type="Script" path="res://Scripts/Classes/Resources/EntityCard.cs" id="1_qvd5v"]
 
 [resource]
-script = ExtResource("2_af2lw")
+script = ExtResource("1_qvd5v")
 Name = "Cave Rat"
 MaxHP = 10
-Attack = 2
+Attack = 1
 Defense = 1
-Dexterity = 1
+Dexterity = 5
 Target = 0
-Texture = ExtResource("1_ouots")
-Color = Color(1, 0.0901961, 0, 1)
+Color = Color(1, 1, 1, 1)

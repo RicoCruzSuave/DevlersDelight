@@ -21,7 +21,7 @@ public partial class TeamManagement : Control
             case "Recruiting":
                 Overview.Visible = false;
                 RecruitingPRIMARY.Visible = true;
-                RecruitingSECONDARY.Visible = false;
+                RecruitingSECONDARY.Visible = true;
             break;
 
         }
