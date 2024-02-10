@@ -1,10 +1,12 @@
 using Godot;
 using System;
 
+
+
 public partial class MainOverview : Control
 {
 
-    [Export] private Label lbl_playername, lbl_money, lbl_exp;
+    [Export] private Label lbl_playername, lbl_money, lbl_exp, lbl_teamcount;
 
     //Gets called on "visibility_changed()" signal from root Node "MainOverview"
     public void OnMenuVisible()
@@ -12,12 +14,30 @@ public partial class MainOverview : Control
         if(!this.Visible) return;
         //TODO: Remove this to somewhere else. THIS IS JUST FOR QUICK TESTING
         if(PlayerData.curPlayer == null) PlayerData.CreatePlayer("Player");
-        GD.Print("MainOverview Loaded");
 
         lbl_playername.Text = PlayerData.curPlayer.PlayerName;
         lbl_money.Text = "Money total: " + PlayerData.curPlayer.Money.ToString();
         lbl_exp.Text = "Experience total:" + PlayerData.curPlayer.Experience.ToString();
+        lbl_teamcount.Text = "Team cap.: " + PlayerData.curPlayer.GetTeamMemberCount().ToString() + "/4"; //TODO: 4 should be a global somewhere. change it later
 
+    }
+
+    //Gets Called when a button is pressed and sends a "pressed()" signal with a string Parameter
+    public void ChangeScene(string sceneName)
+    {
+        switch(sceneName)
+        {
+            case "Map":
+                DeskMenu.SwitchScene(MenuItems.Map);
+            break;
+            case "TeamManager":
+                DeskMenu.SwitchScene(MenuItems.TeamManager);
+            break;
+            case "Quit":
+                GetTree().Quit();
+            break;
+
+        }
     }
 
 }

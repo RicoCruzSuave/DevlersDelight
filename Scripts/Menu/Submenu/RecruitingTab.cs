@@ -5,10 +5,8 @@ using System.Linq;
 
 public partial class RecruitingTab : Control
 {
-	private const string DELVER_RESOURCE_PATH = "res://Resources/Delvers";
 	private const int MAXIMUM_MEMBERS_ALLOWED = 4;
 	
-	[Export]  private Player player;
 	[Export] private Label lbl_noRecruits, recruitBtnLabel, recruitCount;
 	[Export] private Control recruitPreviewCard;
 	[Export] private ItemList recruitedMembers;
@@ -17,15 +15,15 @@ public partial class RecruitingTab : Control
 	[Export] private TextureRect delverIcon;
 
 
-	private List<EntityCard> origCardList = new List<EntityCard>();
+	private List<EntityCard> origCardList;
 	private List<EntityCard> availableDelvers = new List<EntityCard>();
 	int currDelverIdx = 0; //default (first List item)
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		availableDelvers = LoadEntitiesFromDirectory();
-		origCardList = LoadEntitiesFromDirectory(); //needed for removing // TODO find a better solution
+		availableDelvers = Helpers.LoadEntitiesFromDirectory("Delvers");
+		origCardList = new List<EntityCard>(availableDelvers);
 		
 		recruitBtnLabel.Text = "Recruit Members (" + availableDelvers.Count.ToString() + ")";
 		if(availableDelvers.Count > 0)
@@ -61,7 +59,7 @@ public partial class RecruitingTab : Control
 		EntityCard recruitedMember = availableDelvers.ElementAt(currDelverIdx);
 		
 		recruitedMembers.AddItem(recruitedMember.Name, recruitedMember.Texture);
-		//player.AddMemberToTeam(recruitedMember);
+		PlayerData.curPlayer.AddMemberToTeam(recruitedMember);
 		availableDelvers.Remove(recruitedMember);
 		recruitCount.Text = "Recruited Members (" + recruitedMembers.ItemCount.ToString() + "/" + MAXIMUM_MEMBERS_ALLOWED.ToString() +  " )";
 		
@@ -83,7 +81,7 @@ public partial class RecruitingTab : Control
 
 		EntityCard member = origCardList.First(item => item.Name == recruitedMembers.GetItemText(selectedRecruits[0]));
 
-		//player.RemoveMemberFromTeam(member);
+		PlayerData.curPlayer.RemoveMemberFromTeam(member);
 		recruitedMembers.RemoveItem(selectedRecruits[0]);
 
 		//for now add member back to availableDelvers list
@@ -94,7 +92,6 @@ public partial class RecruitingTab : Control
 		recruitCount.Text = "Recruited Members (" + recruitedMembers.ItemCount.ToString() + "/" + MAXIMUM_MEMBERS_ALLOWED.ToString() +  " )";
 
 	}
-
 
 	public void NextDelver()
 	{
@@ -121,29 +118,6 @@ public partial class RecruitingTab : Control
 		}
 		
 		SetPreview(availableDelvers.ElementAt(currDelverIdx));
-	}
-
-	private List<EntityCard> LoadEntitiesFromDirectory()
-	{
-		List<EntityCard> availableEntities = new List<EntityCard>();
-		using var dir = DirAccess.Open(DELVER_RESOURCE_PATH);
-		if (dir != null)
-		{
-			foreach(string fileName in dir.GetFiles())
-			{
-				//GD.Print($"Found file: {fileName}");
-				string fullResourcePath = DELVER_RESOURCE_PATH + "/" + fileName;
-				availableEntities.Add(GD.Load<EntityCard>(fullResourcePath));
-			}
-		}
-		else
-		{
-			GD.PrintErr("An error occurred when trying to access the path.");
-			return null;
-		}
-
-		return availableEntities;
-
 	}
 
 }

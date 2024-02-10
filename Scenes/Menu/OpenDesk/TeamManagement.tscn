@@ -1,5 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://cjenbxlsvqo8r"]
 
+[ext_resource type="Script" path="res://Scripts/Menu/Desk/TeamManagement.cs" id="1_d5vyu"]
 [ext_resource type="Texture2D" uid="uid://c0wwuneqh6u3p" path="res://Placeholder/Assets/MenuAssets/GUI/Paper/0.png" id="1_s1ui8"]
 [ext_resource type="Texture2D" uid="uid://cdbnu8i1tk2ky" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/8.png" id="2_506c7"]
 [ext_resource type="Texture2D" uid="uid://dgixtabmli7di" path="res://Placeholder/Assets/MenuAssets/GUI/4 Buttons/9.png" id="3_07qmx"]
@@ -7,8 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c5c2th8hs1syc" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/27.png" id="5_lcu56"]
 [ext_resource type="Texture2D" uid="uid://b1gmr0clpuhx1" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/26.png" id="6_kvwwk"]
 [ext_resource type="Texture2D" uid="uid://cbrdy1fhp5xy1" path="res://Placeholder/Assets/MenuAssets/GUI/Paper/1.png" id="7_id1py"]
-[ext_resource type="Script" path="res://Scenes/RecruitingTab.cs" id="8_rhn3t"]
-[ext_resource type="Resource" uid="uid://boghvra7ljr7g" path="res://Resources/player.tres" id="9_6c0jl"]
+[ext_resource type="Script" path="res://Scripts/Menu/Submenu/RecruitingTab.cs" id="8_rhn3t"]
 [ext_resource type="Texture2D" uid="uid://dvtsqbl8u3tqy" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/3.png" id="10_j78l7"]
 [ext_resource type="Texture2D" uid="uid://dyt6lpdej5ae" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/16.png" id="11_m1trr"]
 [ext_resource type="Texture2D" uid="uid://d25ykgigieejx" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/5.png" id="12_3grws"]
@@ -46,7 +46,7 @@ font_color = Color(0.764706, 0.537255, 0.364706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ri15"]
 font = ExtResource("4_hdjxl")
-font_size = 48
+font_size = 40
 font_color = Color(0.764706, 0.537255, 0.364706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wk2g7"]
@@ -54,11 +54,15 @@ font = ExtResource("4_hdjxl")
 font_size = 24
 font_color = Color(0.764706, 0.537255, 0.364706, 1)
 
-[node name="TeamManager" type="Control"]
+[node name="TeamManagement" type="Control" node_paths=PackedStringArray("Overview", "RecruitingPRIMARY", "RecruitingSECONDARY")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_d5vyu")
+Overview = NodePath("Primary/Overview")
+RecruitingPRIMARY = NodePath("Primary/Recruits")
+RecruitingSECONDARY = NodePath("Secondary/RecruitingTab")
 
 [node name="lbl_teamManager" type="Label" parent="."]
 layout_mode = 0
@@ -71,10 +75,10 @@ label_settings = SubResource("LabelSettings_spbb2")
 
 [node name="Primary" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 22.0
-offset_right = 599.0
-offset_bottom = 710.0
+offset_left = 77.0
+offset_top = 55.0
+offset_right = 579.0
+offset_bottom = 673.0
 texture = ExtResource("1_s1ui8")
 stretch_mode = 4
 
@@ -85,9 +89,9 @@ offset_bottom = 40.0
 
 [node name="lbl_Overview" type="Label" parent="Primary/Overview"]
 layout_mode = 0
-offset_left = 124.0
+offset_left = 84.0
 offset_top = 55.0
-offset_right = 418.0
+offset_right = 378.0
 offset_bottom = 102.0
 text = "Overview"
 label_settings = SubResource("LabelSettings_wgbek")
@@ -95,10 +99,10 @@ horizontal_alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="Primary/Overview"]
 layout_mode = 0
-offset_left = 111.0
+offset_left = 71.0
 offset_top = 139.0
-offset_right = 447.0
-offset_bottom = 554.0
+offset_right = 407.0
+offset_bottom = 482.0
 
 [node name="btn_createTeam" type="TextureButton" parent="Primary/Overview/ButtonContainer"]
 custom_minimum_size = Vector2(0, 48)
@@ -240,6 +244,34 @@ texture = ExtResource("5_lcu56")
 expand_mode = 3
 stretch_mode = 4
 
+[node name="btn_backToMenu" type="TextureButton" parent="Primary/Overview/ButtonContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_506c7")
+texture_pressed = ExtResource("3_07qmx")
+texture_hover = ExtResource("3_07qmx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Primary/Overview/ButtonContainer/btn_backToMenu"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Back to Overview"
+label_settings = SubResource("LabelSettings_7msnd")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Primary/Overview/ButtonContainer/btn_backToMenu"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 47.0
+texture = ExtResource("5_lcu56")
+expand_mode = 3
+stretch_mode = 4
+
 [node name="endoflist" type="TextureRect" parent="Primary/Overview/ButtonContainer"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -250,10 +282,10 @@ stretch_mode = 5
 [node name="home_stats" type="VBoxContainer" parent="Primary/Overview"]
 z_index = 1
 layout_mode = 0
-offset_left = 762.0
-offset_top = 148.0
-offset_right = 1136.0
-offset_bottom = 615.0
+offset_left = 710.0
+offset_top = 95.0
+offset_right = 1084.0
+offset_bottom = 562.0
 metadata/_edit_group_ = true
 
 [node name="lbl_activeExpeditions" type="Label" parent="Primary/Overview/home_stats"]
@@ -293,18 +325,18 @@ label_settings = SubResource("LabelSettings_3rvxp")
 
 [node name="recruitedMembers" type="ItemList" parent="Primary/Recruits"]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 100.0
-offset_right = 476.0
-offset_bottom = 548.0
+offset_left = 33.0
+offset_top = 94.0
+offset_right = 437.0
+offset_bottom = 510.0
 
 [node name="btn_removeRecruit" type="TextureButton" parent="Primary/Recruits"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 0
-offset_left = 39.0
-offset_top = 555.0
-offset_right = 86.0
-offset_bottom = 603.0
+offset_left = 28.0
+offset_top = 510.0
+offset_right = 75.0
+offset_bottom = 558.0
 texture_normal = ExtResource("2_506c7")
 texture_pressed = ExtResource("3_07qmx")
 texture_hover = ExtResource("3_07qmx")
@@ -330,19 +362,19 @@ texture = ExtResource("5_lcu56")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="btn_goBack3" type="TextureButton" parent="Primary/Recruits"]
+[node name="btn_goBack" type="TextureButton" parent="Primary/Recruits"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 0
-offset_left = 343.0
-offset_top = 555.0
-offset_right = 390.0
-offset_bottom = 603.0
+offset_left = 304.0
+offset_top = 509.0
+offset_right = 351.0
+offset_bottom = 557.0
 texture_normal = ExtResource("2_506c7")
 texture_pressed = ExtResource("3_07qmx")
 texture_hover = ExtResource("3_07qmx")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="Primary/Recruits/btn_goBack3"]
+[node name="Label" type="Label" parent="Primary/Recruits/btn_goBack"]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 3.0
@@ -352,7 +384,7 @@ text = "Go Back"
 label_settings = SubResource("LabelSettings_7msnd")
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Primary/Recruits/btn_goBack3"]
+[node name="TextureRect" type="TextureRect" parent="Primary/Recruits/btn_goBack"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 16.0
@@ -364,32 +396,33 @@ stretch_mode = 4
 
 [node name="Secondary" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 723.0
-offset_top = 101.0
-offset_right = 1249.0
-offset_bottom = 708.0
+offset_left = 713.0
+offset_top = 89.0
+offset_right = 1200.0
+offset_bottom = 651.0
 texture = ExtResource("7_id1py")
 stretch_mode = 4
 
 [node name="RecruitingTab" type="Control" parent="Secondary" node_paths=PackedStringArray("lbl_noRecruits", "recruitBtnLabel", "recruitCount", "recruitPreviewCard", "recruitedMembers", "delverName", "delverHP", "delverDescription", "delverATK", "delverDEF", "delverDTX", "delverIcon")]
 visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -16.0
+offset_top = -36.0
+offset_right = 24.0
+offset_bottom = 4.0
 script = ExtResource("8_rhn3t")
-player = ExtResource("9_6c0jl")
-lbl_noRecruits = NodePath("")
-recruitBtnLabel = NodePath("")
-recruitCount = NodePath("")
-recruitPreviewCard = NodePath("")
-recruitedMembers = NodePath("")
-delverName = NodePath("")
-delverHP = NodePath("")
-delverDescription = NodePath("")
-delverATK = NodePath("")
-delverDEF = NodePath("")
-delverDTX = NodePath("")
-delverIcon = NodePath("")
+lbl_noRecruits = NodePath("NoDelver")
+recruitBtnLabel = NodePath("../../Primary/Overview/ButtonContainer/btn_recruit/Label")
+recruitCount = NodePath("../../Primary/Recruits/lbl_recruited")
+recruitPreviewCard = NodePath("DelverPreview")
+recruitedMembers = NodePath("../../Primary/Recruits/recruitedMembers")
+delverName = NodePath("DelverPreview/lbl_name")
+delverHP = NodePath("DelverPreview/VBoxContainer/HP")
+delverDescription = NodePath("DelverPreview/Description")
+delverATK = NodePath("DelverPreview/VBoxContainer/ATK")
+delverDEF = NodePath("DelverPreview/VBoxContainer/DEF")
+delverDTX = NodePath("DelverPreview/VBoxContainer/DTX")
+delverIcon = NodePath("DelverPreview/ProfileBorder/ProfilePic")
 
 [node name="NoDelver" type="Label" parent="Secondary/RecruitingTab"]
 visible = false
@@ -406,16 +439,17 @@ autowrap_mode = 3
 
 [node name="DelverPreview" type="Control" parent="Secondary/RecruitingTab"]
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -5.0
+offset_right = 35.0
 offset_bottom = 40.0
 
 [node name="lbl_name" type="Label" parent="Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
 offset_left = 73.0
-offset_top = 60.0
+offset_top = 85.0
 offset_right = 458.0
-offset_bottom = 144.0
-text = "<Delver_Name>"
+offset_bottom = 169.0
+text = "<DELVER_NAME>"
 label_settings = SubResource("LabelSettings_8ri15")
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -423,9 +457,9 @@ autowrap_mode = 3
 [node name="ProfileBorder" type="TextureRect" parent="Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
 offset_left = 195.0
-offset_top = 146.0
+offset_top = 156.0
 offset_right = 350.0
-offset_bottom = 301.0
+offset_bottom = 311.0
 texture = ExtResource("10_j78l7")
 stretch_mode = 4
 
@@ -508,9 +542,9 @@ autowrap_mode = 3
 
 [node name="lbl_Stats" type="Label" parent="Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 2
-offset_left = 83.0
+offset_left = 89.0
 offset_top = 399.0
-offset_right = 226.0
+offset_right = 232.0
 offset_bottom = 422.0
 text = "Statistics:"
 label_settings = SubResource("LabelSettings_wk2g7")
@@ -518,10 +552,10 @@ autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Secondary/RecruitingTab/DelverPreview"]
 layout_mode = 0
-offset_left = 83.0
+offset_left = 89.0
 offset_top = 424.0
-offset_right = 226.0
-offset_bottom = 503.0
+offset_right = 232.0
+offset_bottom = 528.0
 
 [node name="HP" type="Label" parent="Secondary/RecruitingTab/DelverPreview/VBoxContainer"]
 layout_mode = 2
@@ -567,7 +601,10 @@ texture_normal = ExtResource("17_cn6k4")
 texture_hover = ExtResource("18_jj1ib")
 stretch_mode = 4
 
+[connection signal="pressed" from="Primary/Overview/ButtonContainer/btn_recruit" to="." method="ChangeScene" binds= ["Recruiting"]]
+[connection signal="pressed" from="Primary/Overview/ButtonContainer/btn_backToMenu" to="." method="ChangeScene" binds= ["MainOverview"]]
 [connection signal="pressed" from="Primary/Recruits/btn_removeRecruit" to="Secondary/RecruitingTab" method="RemoveRecruit"]
+[connection signal="pressed" from="Primary/Recruits/btn_goBack" to="." method="ChangeScene" binds= ["TeamManagement"]]
 [connection signal="pressed" from="Secondary/RecruitingTab/DelverPreview/btn_previous" to="Secondary/RecruitingTab" method="PreviousDelver"]
 [connection signal="pressed" from="Secondary/RecruitingTab/DelverPreview/btn_next" to="Secondary/RecruitingTab" method="NextDelver"]
 [connection signal="pressed" from="Secondary/RecruitingTab/DelverPreview/btn_accept" to="Secondary/RecruitingTab" method="AcceptDelver"]

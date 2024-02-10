@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://yay1r35radu"]
+[gd_scene load_steps=9 format=3 uid="uid://yay1r35radu"]
 
 [ext_resource type="Texture2D" uid="uid://deq8rvv7830l8" path="res://Placeholder/Assets/MenuAssets/GUI/Paper/2.png" id="1_4hean"]
+[ext_resource type="Script" path="res://Scripts/Menu/Desk/Map.cs" id="1_ykk3i"]
 [ext_resource type="Texture2D" uid="uid://qo2jn5ioh81b" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/11.png" id="2_tbn48"]
 [ext_resource type="Texture2D" uid="uid://jwrgyj4bvyb1" path="res://Placeholder/Assets/MenuAssets/GUI/2 Icons/8.png" id="3_ttbrq"]
 [ext_resource type="Texture2D" uid="uid://c5c2th8hs1syc" path="res://Placeholder/Assets/MenuAssets/GUI/5 Holders/27.png" id="4_2pgye"]
@@ -16,28 +17,28 @@ font_color = Color(0.764706, 0.537255, 0.364706, 1)
 font_size = 21
 font_color = Color(0.568627, 0.4, 0.356863, 1)
 
-[node name="WorldMap" type="Control"]
-visible = false
+[node name="Map" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_ykk3i")
 
 [node name="lbl_map" type="Label" parent="."]
 layout_mode = 0
-offset_left = 173.0
-offset_top = -8.0
-offset_right = 547.0
-offset_bottom = 92.0
+offset_left = 68.0
+offset_top = 13.0
+offset_right = 442.0
+offset_bottom = 113.0
 text = "World Map"
 label_settings = SubResource("LabelSettings_gqiwr")
 
 [node name="WorldMap" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 99.0
-offset_right = 1239.0
-offset_bottom = 684.0
+offset_left = 48.0
+offset_top = 70.0
+offset_right = 1206.0
+offset_bottom = 631.0
 texture = ExtResource("1_4hean")
 stretch_mode = 4
 
@@ -138,3 +139,5 @@ offset_bottom = 7.0
 text = "Abandoned Ruin"
 label_settings = SubResource("LabelSettings_8isxv")
 horizontal_alignment = 1
+
+[connection signal="pressed" from="WorldMap/Home" to="." method="ChangeScene" binds= ["MainOverview"]]

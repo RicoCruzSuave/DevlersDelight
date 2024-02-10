@@ -51,7 +51,7 @@ font = ExtResource("6_kgq6o")
 font_size = 33
 font_color = Color(0.568627, 0.4, 0.356863, 1)
 
-[node name="MainOverview" type="Control" node_paths=PackedStringArray("lbl_playername", "lbl_money", "lbl_exp")]
+[node name="MainOverview" type="Control" node_paths=PackedStringArray("lbl_playername", "lbl_money", "lbl_exp", "lbl_teamcount")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,6 +62,7 @@ script = ExtResource("1_8s36l")
 lbl_playername = NodePath("PlayerInfo/ProfileSpriteBorder/VBoxContainer/PlayerName")
 lbl_money = NodePath("PlayerInfo/ProfileSpriteBorder/VBoxContainer/Money")
 lbl_exp = NodePath("PlayerInfo/ProfileSpriteBorder/VBoxContainer/Experience")
+lbl_teamcount = NodePath("PlayerInfo/team_settlement_stats/lbl_teamcount")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -285,6 +286,7 @@ patch_margin_right = 13
 patch_margin_bottom = 13
 
 [node name="Label" type="Label" parent="PlayerInfo/team_settlement_stats"]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
@@ -292,6 +294,17 @@ offset_right = 230.0
 offset_bottom = 230.0
 text = "Settlement/Team
 overview"
+label_settings = SubResource("LabelSettings_j6ihq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lbl_teamcount" type="Label" parent="PlayerInfo/team_settlement_stats"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_right = 230.0
+offset_bottom = 230.0
+text = "Team cap.: 0/4"
 label_settings = SubResource("LabelSettings_j6ihq")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -529,3 +542,6 @@ expand_mode = 3
 stretch_mode = 4
 
 [connection signal="visibility_changed" from="." to="." method="OnMenuVisible"]
+[connection signal="pressed" from="Overview/ButtonContainer/btn_TeamManager" to="." method="ChangeScene" binds= ["TeamManager"]]
+[connection signal="pressed" from="Overview/ButtonContainer/btn_map" to="." method="ChangeScene" binds= ["Map"]]
+[connection signal="pressed" from="Overview/ButtonContainer/btn_quit" to="." method="ChangeScene" binds= ["Quit"]]
