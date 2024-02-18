@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalStuff="*res://Scripts/Classes/GlobalStuff.cs"
 PlayerData="*res://Scripts/Classes/PlayerData.cs"
 DeskMenu="*res://Scripts/Menu/DeskMenu.cs"
 

@@ -5,7 +5,6 @@ using System.Linq;
 
 public partial class RecruitingTab : Control
 {
-	private const int MAXIMUM_MEMBERS_ALLOWED = 4;
 	
 	[Export] private Label lbl_noRecruits, recruitBtnLabel, recruitCount;
 	[Export] private Control recruitPreviewCard;
@@ -22,7 +21,7 @@ public partial class RecruitingTab : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		availableDelvers = Helpers.LoadEntitiesFromDirectory("Delvers");
+		availableDelvers = Helpers.LoadEntitiesFromDirectory(GlobalStuff.ROOT_DELVERS_PATH);
 		origCardList = new List<EntityCard>(availableDelvers);
 		
 		recruitBtnLabel.Text = "Recruit Members (" + availableDelvers.Count.ToString() + ")";
@@ -54,14 +53,14 @@ public partial class RecruitingTab : Control
 
 	public void AcceptDelver()
 	{
-		if(recruitedMembers.ItemCount+1 > MAXIMUM_MEMBERS_ALLOWED) return;
+		if(recruitedMembers.ItemCount+1 > GlobalStuff.MAX_MEMBER_PER_TEAM) return;
 
 		EntityCard recruitedMember = availableDelvers.ElementAt(currDelverIdx);
 		
 		recruitedMembers.AddItem(recruitedMember.Name, recruitedMember.Texture);
 		PlayerData.curPlayer.AddMemberToTeam(recruitedMember);
 		availableDelvers.Remove(recruitedMember);
-		recruitCount.Text = "Recruited Members (" + recruitedMembers.ItemCount.ToString() + "/" + MAXIMUM_MEMBERS_ALLOWED.ToString() +  " )";
+		recruitCount.Text = "Recruited Members (" + recruitedMembers.ItemCount.ToString() + "/" + GlobalStuff.MAX_MEMBER_PER_TEAM.ToString() +  " )";
 		
 		currDelverIdx = (currDelverIdx+1 < availableDelvers.Count) ? currDelverIdx++ : 0;
 		SetPreview(availableDelvers.ElementAt(currDelverIdx));
@@ -89,7 +88,7 @@ public partial class RecruitingTab : Control
 		SetPreview(member);
 
 		recruitBtnLabel.Text = "Recruit Members (" + availableDelvers.Count.ToString() + ")";
-		recruitCount.Text = "Recruited Members (" + recruitedMembers.ItemCount.ToString() + "/" + MAXIMUM_MEMBERS_ALLOWED.ToString() +  " )";
+		recruitCount.Text = "Recruited Members (" + recruitedMembers.ItemCount.ToString() + "/" + GlobalStuff.MAX_MEMBER_PER_TEAM.ToString() +  " )";
 
 	}
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dedd1yhnhsm8f"]
+
+[ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="1_2ps1n"]
+[ext_resource type="Script" path="res://Scripts/Classes/Resources/Item.cs" id="2_eqp2t"]
+
+[resource]
+script = ExtResource("2_eqp2t")
+Icon = ExtResource("1_2ps1n")
+ItemName = "Wood"
+Type = 1

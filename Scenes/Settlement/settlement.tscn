@@ -383,7 +383,7 @@ texture = ExtResource("6_ybx3t")
 [sub_resource type="TileSet" id="TileSet_r4n03"]
 sources/0 = SubResource("TileSetAtlasSource_7uq4s")
 
-[node name="Settlement" type="Control"]
+[node name="Settlement_T1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -397,6 +397,7 @@ grow_vertical = 2
 
 [node name="Sky" type="ParallaxLayer" parent="Decoration/ParallaxBackground"]
 scale = Vector2(2, 2)
+motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Decoration/ParallaxBackground/Sky"]
@@ -405,6 +406,7 @@ centered = false
 
 [node name="Clouds1" type="ParallaxLayer" parent="Decoration/ParallaxBackground"]
 scale = Vector2(2, 2)
+motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Decoration/ParallaxBackground/Clouds1"]
@@ -413,7 +415,8 @@ centered = false
 
 [node name="Clouds2" type="ParallaxLayer" parent="Decoration/ParallaxBackground"]
 scale = Vector2(2, 2)
-motion_mirroring = Vector2(576, 0)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Decoration/ParallaxBackground/Clouds2"]
 texture = ExtResource("3_21s43")
@@ -421,6 +424,7 @@ centered = false
 
 [node name="ground1" type="ParallaxLayer" parent="Decoration/ParallaxBackground"]
 scale = Vector2(2, 2)
+motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Decoration/ParallaxBackground/ground1"]
@@ -429,6 +433,7 @@ centered = false
 
 [node name="ground2" type="ParallaxLayer" parent="Decoration/ParallaxBackground"]
 scale = Vector2(2, 2)
+motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Decoration/ParallaxBackground/ground2"]

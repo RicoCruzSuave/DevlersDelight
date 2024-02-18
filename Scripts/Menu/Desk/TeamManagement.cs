@@ -11,7 +11,7 @@ public partial class TeamManagement : Control
         switch(sceneName)
         {
             case "MainOverview":
-                DeskMenu.SwitchScene(MenuItems.MainOverview);
+                DeskMenu.SwitchScene(GlobalStuff.MenuItems.MainOverview);
             break;
             case "TeamManagement":
                 Overview.Visible = true;

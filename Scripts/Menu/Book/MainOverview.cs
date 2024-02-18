@@ -16,7 +16,7 @@ public partial class MainOverview : Control
         if(PlayerData.curPlayer == null) PlayerData.CreatePlayer("Player");
 
         lbl_playername.Text = PlayerData.curPlayer.PlayerName;
-        lbl_money.Text = "Money total: " + PlayerData.curPlayer.Money.ToString();
+        //lbl_money.Text = "Money total: " + PlayerData.curPlayer.Money.ToString();
         lbl_exp.Text = "Experience total:" + PlayerData.curPlayer.Experience.ToString();
         lbl_teamcount.Text = "Team cap.: " + PlayerData.curPlayer.GetTeamMemberCount().ToString() + "/4"; //TODO: 4 should be a global somewhere. change it later
 
@@ -28,10 +28,10 @@ public partial class MainOverview : Control
         switch(sceneName)
         {
             case "Map":
-                DeskMenu.SwitchScene(MenuItems.Map);
+                DeskMenu.SwitchScene(GlobalStuff.MenuItems.Map);
             break;
             case "TeamManager":
-                DeskMenu.SwitchScene(MenuItems.TeamManager);
+                DeskMenu.SwitchScene(GlobalStuff.MenuItems.TeamManager);
             break;
             case "Quit":
                 GetTree().Quit();

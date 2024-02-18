@@ -10,7 +10,7 @@ public partial class Map : Control
         switch(sceneName)
         {
             case "MainOverview":
-            DeskMenu.SwitchScene(MenuItems.MainOverview);
+            DeskMenu.SwitchScene(GlobalStuff.MenuItems.MainOverview);
             break;
 
         }

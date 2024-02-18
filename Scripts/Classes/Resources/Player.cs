@@ -7,12 +7,23 @@ public partial class Player : Resource
 {
 	[Export] public string PlayerName;
 	[Export] public float Experience;
-	[Export] public float Money;
 
-	//Todo: Since export is not supported, default members must be set somewhere else
+	//Todo: Since export is not supported for Lists, default members must be set somewhere else
 	private List<EntityCard> TeamComposition = new List<EntityCard>(); 
+	private Inventory inventory = new Inventory(); //Manages Money and Items
 
 
+	//Inventory Functions
+	public void AddMoney(float amount)
+	{
+		inventory.AddMoney(amount);
+	}
+	public float GetTotalMoney()
+	{
+		return inventory.GetMoney();
+	}
+	
+	//Team-Managing Functions
 	public int GetTeamMemberCount()
 	{
 		return this.TeamComposition.Count();

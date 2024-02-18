@@ -5,9 +5,6 @@ using System.Linq;
 
 public partial class Helpers : Node
 {
-	private const string ROOT_RESOURCE_PATH = "res://Resources/";
-
-
 	
 	//Load Entities from given Resource Folder Name (List and single)
 	public static List<EntityCard> LoadEntitiesFromDirectory(string resFolder = "")
@@ -46,13 +43,13 @@ public partial class Helpers : Node
 	public static List<Resource> LoadResourcesFromDirectory(string resFolder = "")
 	{
 		List<Resource> availableResources = new List<Resource>();
-		using var dir = DirAccess.Open(ROOT_RESOURCE_PATH + resFolder);
+		using var dir = DirAccess.Open(GlobalStuff.ROOT_RESOURCE_PATH + resFolder);
 		if (dir != null)
 		{
 			foreach(string fileName in dir.GetFiles())
 			{
 				//GD.Print($"Found file: {fileName}");
-				string fullResourcePath = ROOT_RESOURCE_PATH + resFolder + "/" + fileName;
+				string fullResourcePath = GlobalStuff.ROOT_RESOURCE_PATH + resFolder + "/" + fileName;
 				availableResources.Add(GD.Load<Resource>(fullResourcePath));
 			}
 		}
