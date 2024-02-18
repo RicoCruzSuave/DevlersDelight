@@ -383,7 +383,7 @@ texture = ExtResource("6_ybx3t")
 [sub_resource type="TileSet" id="TileSet_r4n03"]
 sources/0 = SubResource("TileSetAtlasSource_7uq4s")
 
-[node name="Settlement_T1" type="Control"]
+[node name="Settlement" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

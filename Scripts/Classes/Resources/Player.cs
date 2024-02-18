@@ -11,7 +11,18 @@ public partial class Player : Resource
 	//Todo: Since export is not supported for Lists, default members must be set somewhere else
 	private List<EntityCard> TeamComposition = new List<EntityCard>(); 
 	private Inventory inventory = new Inventory(); //Manages Money and Items
+	private Settlement settlement = new Settlement();
 
+
+
+
+	
+
+	//Settlement Functions
+	public void AddPopulation(int amount)
+	{
+		settlement.AddPopulation(amount);
+	}
 
 	//Inventory Functions
 	public void AddMoney(float amount)
@@ -22,7 +33,7 @@ public partial class Player : Resource
 	{
 		return inventory.GetMoney();
 	}
-	
+
 	//Team-Managing Functions
 	public int GetTeamMemberCount()
 	{

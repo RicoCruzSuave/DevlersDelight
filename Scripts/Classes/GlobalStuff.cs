@@ -8,10 +8,12 @@ public partial class GlobalStuff : Node
 	public const string ROOT_DELVERS_PATH = ROOT_RESOURCE_PATH + "/Creatures/Delvers";
 	public const string ROOT_MONSTERS_PATH = ROOT_RESOURCE_PATH + "/Creatures/Monsters";
 	public const string ROOT_ITEMS_PATH = ROOT_RESOURCE_PATH + "/Items";
+	public const string ROOT_BUILDINGS_PATH = ROOT_RESOURCE_PATH + "/Buildings";
 	public const string ROOT_SAVES_PATH = ROOT_RESOURCE_PATH + "/Saves";
 
 	//Default Values
 	public const float STARTER_MONEY = 100;
+	public const int STARTER_POPULATION_SIZE = 3;
 
 	//Limitations
 	public const int MAX_MEMBER_PER_TEAM = 4;
@@ -31,5 +33,13 @@ public partial class GlobalStuff : Node
 		Resource,
 		Food,
 		Tool,
+	}
+
+	public enum BuildingTypes{
+		Undefined = 0,
+		Housing,
+		Trading,
+		Farming,
+		Special,
 	}
 }

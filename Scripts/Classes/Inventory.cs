@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class Inventory 
+public class Inventory 
 {
     public struct inventory_item {
         public Item item;
@@ -17,6 +17,7 @@ public partial class Inventory
     private List<inventory_item> items = new List<inventory_item>();
     private float money = 0.00f;
 
+    //Money Management
     public void AddMoney(float amount){
         this.money += (float)Math.Round(amount,2); //Amount will always round to 2 decimal places
     }
@@ -24,6 +25,7 @@ public partial class Inventory
         return this.money;
     }
 
+    //Item Management
     public void RemoveItemOrAmount(Item item, int amount)
     {
         inventory_item inv_item = GetItemOrDefault(item);

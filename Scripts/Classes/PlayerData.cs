@@ -15,6 +15,7 @@ public partial class PlayerData : Node
             PlayerName = playerName
         };
         curPlayer.AddMoney(GlobalStuff.STARTER_MONEY);
+        curPlayer.AddPopulation(GlobalStuff.STARTER_POPULATION_SIZE);
     }
 
     //returns null if non found

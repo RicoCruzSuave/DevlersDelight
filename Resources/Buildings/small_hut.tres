@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ctmwuni5sp02c"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Resources/Building.cs" id="1_sg2iq"]
+
+[resource]
+script = ExtResource("1_sg2iq")
+BuildingName = "Small Hut"
+PopulationSpace = 5
+Type = 1
