@@ -16,7 +16,7 @@ public partial class MainOverview : Control
         if(PlayerData.curPlayer == null) PlayerData.CreatePlayer("Player");
 
         lbl_playername.Text = PlayerData.curPlayer.PlayerName;
-        //lbl_money.Text = "Money total: " + PlayerData.curPlayer.Money.ToString();
+        lbl_money.Text = "Money total: " + PlayerData.curPlayer.GetTotalMoney().ToString();
         lbl_exp.Text = "Experience total:" + PlayerData.curPlayer.Experience.ToString();
         lbl_teamcount.Text = "Team cap.: " + PlayerData.curPlayer.GetTeamMemberCount().ToString() + "/4"; //TODO: 4 should be a global somewhere. change it later
 

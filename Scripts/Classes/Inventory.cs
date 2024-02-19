@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
+
 
 public class Inventory 
 {
@@ -15,7 +17,7 @@ public class Inventory
     }
 
     private List<inventory_item> items = new List<inventory_item>();
-    private float money = 0.00f;
+    [Export] private float money = 0.00f;
 
     //Money Management
     public void AddMoney(float amount){

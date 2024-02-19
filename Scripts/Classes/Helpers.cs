@@ -43,13 +43,13 @@ public partial class Helpers : Node
 	public static List<Resource> LoadResourcesFromDirectory(string resFolder = "")
 	{
 		List<Resource> availableResources = new List<Resource>();
-		using var dir = DirAccess.Open(GlobalStuff.ROOT_RESOURCE_PATH + resFolder);
+		using var dir = DirAccess.Open(resFolder);
 		if (dir != null)
 		{
 			foreach(string fileName in dir.GetFiles())
 			{
 				//GD.Print($"Found file: {fileName}");
-				string fullResourcePath = GlobalStuff.ROOT_RESOURCE_PATH + resFolder + "/" + fileName;
+				string fullResourcePath = resFolder + fileName;
 				availableResources.Add(GD.Load<Resource>(fullResourcePath));
 			}
 		}
