@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1qdmgtjyekek"]
+[gd_scene load_steps=18 format=3 uid="uid://c1qdmgtjyekek"]
 
 [ext_resource type="Script" path="res://Placeholder/Background.cs" id="1_tt1sw"]
 [ext_resource type="Script" path="res://Scripts/Classes/Sequence.gd" id="2_whd4q"]
 [ext_resource type="Texture2D" uid="uid://crsppw711pjoq" path="res://Placeholder/Assets/Mine_Tile/BG.png" id="3_mo1km"]
 [ext_resource type="Texture2D" uid="uid://cdmt32taokaj0" path="res://Placeholder/Assets/Mine_Tile/Rock(back)1.png" id="3_tfchu"]
+[ext_resource type="Texture2D" uid="uid://c6i8ld401shgi" path="res://Placeholder/Assets/Mine_Tile/Rock(mid)2.png" id="4_cv22w"]
+[ext_resource type="Texture2D" uid="uid://cm22sl6b1kuci" path="res://Placeholder/Assets/Mine_Tile/Rock(mid)3.png" id="5_kcbdl"]
 [ext_resource type="Texture2D" uid="uid://10kft62kj1dx" path="res://Placeholder/Assets/Mine_Tile/Rock(mid)1.png" id="5_mubax"]
+[ext_resource type="Texture2D" uid="uid://yumg84xmgbvd" path="res://Placeholder/Assets/Mine_Tile/Rock(mid)4.png" id="6_7hnyt"]
+[ext_resource type="Texture2D" uid="uid://56c22gjxpox6" path="res://Placeholder/Assets/Mine_Tile/Rock(mid)5.png" id="7_k3bwu"]
 
 [sub_resource type="Gradient" id="Gradient_dldc8"]
 offsets = PackedFloat32Array(1)
@@ -49,11 +53,133 @@ script = ExtResource("2_whd4q")
 order = 1
 resolution = 3
 
-[node name="BackgroundRocks" type="Sprite2D" parent="Sequence"]
+[node name="Background1" type="Sprite2D" parent="Sequence"]
+visible = false
 top_level = true
-texture_filter = 1
-scale = Vector2(2, 2)
-texture = ExtResource("3_tfchu")
+z_index = 1
+texture = SubResource("GradientTexture2D_d64at")
+
+[node name="Background2" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 64)
+texture = SubResource("GradientTexture2D_gmbtv")
+
+[node name="Background3" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 128)
+texture = SubResource("GradientTexture2D_gwdwr")
+
+[node name="Background4" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background5" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background6" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background7" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background8" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background9" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background10" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background11" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background12" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background13" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Background14" type="Sprite2D" parent="Sequence"]
+visible = false
+top_level = true
+z_index = 1
+position = Vector2(0, 192)
+texture = SubResource("GradientTexture2D_3ueds")
+
+[node name="Rock(mid)1" type="Sprite2D" parent="Sequence"]
+top_level = true
+z_index = 1
+scale = Vector2(4, 6)
+texture = ExtResource("5_mubax")
+offset = Vector2(0, -64)
+
+[node name="Rock(mid)2" type="Sprite2D" parent="Sequence"]
+top_level = true
+scale = Vector2(4, 6)
+texture = ExtResource("4_cv22w")
+offset = Vector2(0, -64)
+
+[node name="Rock(mid)3" type="Sprite2D" parent="Sequence"]
+top_level = true
+scale = Vector2(4, 6)
+texture = ExtResource("5_kcbdl")
+offset = Vector2(0, -64)
+
+[node name="Rock(mid)4" type="Sprite2D" parent="Sequence"]
+top_level = true
+scale = Vector2(4, 6)
+texture = ExtResource("6_7hnyt")
+offset = Vector2(0, -64)
+
+[node name="Rock(mid)5" type="Sprite2D" parent="Sequence"]
+top_level = true
+scale = Vector2(4, 6)
+texture = ExtResource("7_k3bwu")
+offset = Vector2(0, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -64,6 +190,13 @@ position = Vector2(0, -306)
 scale = Vector2(7, 7)
 texture = ExtResource("3_mo1km")
 
+[node name="BackgroundRocks" type="Sprite2D" parent="."]
+visible = false
+top_level = true
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_tfchu")
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
 z_index = -2
@@ -73,34 +206,8 @@ position = Vector2(2011, -306)
 scale = Vector2(7, 7)
 texture = ExtResource("3_mo1km")
 
-[node name="Background1" type="Sprite2D" parent="."]
-visible = false
-top_level = true
-z_index = 1
-texture = SubResource("GradientTexture2D_d64at")
-
-[node name="Background2" type="Sprite2D" parent="."]
-visible = false
-top_level = true
-z_index = 1
-position = Vector2(0, 64)
-texture = SubResource("GradientTexture2D_gmbtv")
-
-[node name="Background3" type="Sprite2D" parent="."]
-visible = false
-top_level = true
-z_index = 1
-position = Vector2(0, 128)
-texture = SubResource("GradientTexture2D_gwdwr")
-
-[node name="Background4" type="Sprite2D" parent="."]
-visible = false
-top_level = true
-z_index = 1
-position = Vector2(0, 192)
-texture = SubResource("GradientTexture2D_3ueds")
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.75, 0.75)
@@ -115,6 +222,8 @@ position = Vector2(0, -813)
 scale = Vector2(7, 7)
 texture = ExtResource("3_mo1km")
 centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 288, 192)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_offset = Vector2(192, 0)

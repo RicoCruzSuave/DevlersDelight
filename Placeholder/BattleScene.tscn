@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://deecnqkmxhcly"]
+[gd_scene load_steps=15 format=3 uid="uid://deecnqkmxhcly"]
 
 [ext_resource type="Script" path="res://Placeholder/BattleManager.cs" id="1_807nl"]
 [ext_resource type="PackedScene" uid="uid://b0xttwy55w2q7" path="res://Placeholder/Entity.tscn" id="1_ptrmo"]
+[ext_resource type="Texture2D" uid="uid://crsppw711pjoq" path="res://Placeholder/Assets/Mine_Tile/BG.png" id="2_uq7ql"]
 [ext_resource type="PackedScene" uid="uid://c1qdmgtjyekek" path="res://Scenes/Util/EndlessBackground.tscn" id="2_yrxai"]
 [ext_resource type="Texture2D" uid="uid://coxjjdoyi37vt" path="res://icon.svg" id="3_4cvcv"]
-[ext_resource type="Script" path="res://Scripts/Classes/EntityCard.cs" id="4_k8puf"]
-[ext_resource type="Resource" uid="uid://dcvnu7yrw62sf" path="res://Resources/Delvers/Amanda_Rockfort.tres" id="6_f28v1"]
+[ext_resource type="Texture2D" uid="uid://cdmt32taokaj0" path="res://Placeholder/Assets/Mine_Tile/Rock(back)1.png" id="3_c65e3"]
+[ext_resource type="Texture2D" uid="uid://bf53mlguo6wms" path="res://Placeholder/Assets/Mine_Tile/Rock(front).png" id="3_gyu8y"]
+[ext_resource type="Script" path="res://Scripts/Classes/Resources/EntityCard.cs" id="4_k8puf"]
+[ext_resource type="Texture2D" uid="uid://dnbfv5c8yvfj6" path="res://Placeholder/Assets/Mine_Tile/Rock(back)2.png" id="4_mislr"]
+[ext_resource type="Resource" uid="uid://dcvnu7yrw62sf" path="res://Resources/Creatures/Delvers/Amanda_Rockfort.tres" id="6_f28v1"]
 
 [sub_resource type="Resource" id="Resource_0olpr"]
 script = ExtResource("4_k8puf")
@@ -52,48 +56,97 @@ Texture = ExtResource("3_4cvcv")
 Color = Color(0, 0, 1, 1)
 
 [node name="BattleScene" type="Node2D"]
-
-[node name="BattleManager" type="Node2D" parent="."]
 script = ExtResource("1_807nl")
 PlayerTeamPath = NodePath("PlayerTeam")
 EnemyTeamPath = NodePath("EnemyTeam")
 
-[node name="PlayerTeam" type="Node2D" parent="BattleManager"]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="Background" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(0, -250)
+motion_mirroring = Vector2(2016, 0)
+
+[node name="BG" type="Sprite2D" parent="Background/ParallaxBackground/Background"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(7, 6)
+texture = ExtResource("2_uq7ql")
+centered = false
+
+[node name="Midground" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+z_index = 3
+motion_scale = Vector2(0.3, 0.3)
+motion_offset = Vector2(0, 268)
+motion_mirroring = Vector2(3240, 0)
+
+[node name="Rock(back)1" type="Sprite2D" parent="Background/ParallaxBackground/Midground"]
+z_index = -1
+scale = Vector2(3, 3)
+texture = ExtResource("3_c65e3")
+centered = false
+offset = Vector2(0, -24)
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 96)
+
+[node name="Rock(front)" type="Sprite2D" parent="Background/ParallaxBackground/Midground"]
+z_index = 3
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(6, 6)
+texture = ExtResource("3_gyu8y")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 540, 32)
+
+[node name="Rock(back)2" type="Sprite2D" parent="Background/ParallaxBackground/Midground"]
+texture_repeat = 2
+scale = Vector2(3, 6)
+texture = ExtResource("4_mislr")
+centered = false
+offset = Vector2(0, 32)
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 96)
+
+[node name="PlayerTeam" type="Node2D" parent="."]
 position = Vector2(0, -96)
 
-[node name="Player" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
+[node name="Player" parent="PlayerTeam" instance=ExtResource("1_ptrmo")]
 Card = SubResource("Resource_0olpr")
 
-[node name="Camera2D" type="Camera2D" parent="BattleManager/PlayerTeam/Player"]
-position = Vector2(288, -153)
-zoom = Vector2(0.737, 0.737)
+[node name="Camera2D" type="Camera2D" parent="PlayerTeam/Player"]
+position = Vector2(242, -272)
+zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 
-[node name="Background" parent="BattleManager/PlayerTeam/Player" instance=ExtResource("2_yrxai")]
-position = Vector2(1, 64)
+[node name="Background" parent="PlayerTeam/Player" instance=ExtResource("2_yrxai")]
+position = Vector2(0, 96)
+min_width = 1080
 
-[node name="Entity" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
+[node name="Entity" parent="PlayerTeam" instance=ExtResource("1_ptrmo")]
 position = Vector2(-157, 0)
 
-[node name="Entity2" parent="BattleManager/PlayerTeam" instance=ExtResource("1_ptrmo")]
+[node name="Entity2" parent="PlayerTeam" instance=ExtResource("1_ptrmo")]
 position = Vector2(-300, 10)
 Card = ExtResource("6_f28v1")
 
-[node name="EnemyTeam" type="Node2D" parent="BattleManager"]
+[node name="EnemyTeam" type="Node2D" parent="."]
 position = Vector2(664, -96)
 
-[node name="Enemy" parent="BattleManager/EnemyTeam" instance=ExtResource("1_ptrmo")]
+[node name="Enemy" parent="EnemyTeam" instance=ExtResource("1_ptrmo")]
 position = Vector2(-146, 0)
 scale = Vector2(-1, 1)
 Card = SubResource("Resource_g3683")
 IsFacingRight = false
 
-[node name="Enemy2" parent="BattleManager/EnemyTeam" instance=ExtResource("1_ptrmo")]
+[node name="Enemy2" parent="EnemyTeam" instance=ExtResource("1_ptrmo")]
 scale = Vector2(-1, 1)
 Card = SubResource("Resource_h36l3")
 IsFacingRight = false
 
-[node name="Enemy3" parent="BattleManager/EnemyTeam" instance=ExtResource("1_ptrmo")]
+[node name="Enemy3" parent="EnemyTeam" instance=ExtResource("1_ptrmo")]
 position = Vector2(133, 0)
 scale = Vector2(-1, 1)
 Card = SubResource("Resource_63lg4")

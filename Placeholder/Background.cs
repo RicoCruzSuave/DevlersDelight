@@ -61,7 +61,11 @@ public partial class Background : Node2D
             float offset = 0.0F;
             if (chunk_list.Count > 0)
             {
-                offset = chunk_list.First().Texture.GetWidth() / 2 + new_bg_piece.Texture.GetWidth() / 2;
+                var currentChunk = chunk_list.First();
+                var currentChunkSize = currentChunk.Texture.GetWidth() * currentChunk.Scale.X;
+                var bgPieceSize = new_bg_piece.Texture.GetWidth() * new_bg_piece.Scale.X;
+                offset = currentChunkSize / 2 + bgPieceSize / 2;
+                // offset = chunk_list.First().Texture.GetWidth() / 2 + (new_bg_piece.Texture.GetWidth() * new_bg_piece.Scale.X) / 2;
                 new_bg_piece.GlobalPosition = new Vector2(chunk_list.First().Position.X - offset, this.GlobalPosition.Y);
             }
             chunk_list.Insert(0, new_bg_piece);
@@ -71,7 +75,11 @@ public partial class Background : Node2D
             float offset = 0.0F;
             if (chunk_list.Count > 0)
             {
-                offset = chunk_list.Last().Texture.GetWidth() / 2 + new_bg_piece.Texture.GetWidth() / 2;
+                var currentChunk = chunk_list.Last();
+                var currentChunkSize = currentChunk.Texture.GetWidth() * currentChunk.Scale.X;
+                var bgPieceSize = new_bg_piece.Texture.GetWidth() * new_bg_piece.Scale.X;
+                offset = currentChunkSize / 2 + bgPieceSize / 2;
+                // offset = chunk_list.Last().Texture.GetWidth() / 2 + (new_bg_piece.Texture.GetWidth() * new_bg_piece.Scale.X) / 2;
                 new_bg_piece.GlobalPosition = new Vector2(chunk_list.Last().Position.X + offset, this.GlobalPosition.Y);
             }
             chunk_list.Add(new_bg_piece);
