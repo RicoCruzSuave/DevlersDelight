@@ -542,6 +542,5 @@ expand_mode = 3
 stretch_mode = 4
 
 [connection signal="visibility_changed" from="." to="." method="OnMenuVisible"]
-[connection signal="pressed" from="Overview/ButtonContainer/btn_TeamManager" to="." method="ChangeScene" binds= ["TeamManager"]]
-[connection signal="pressed" from="Overview/ButtonContainer/btn_map" to="." method="ChangeScene" binds= ["Map"]]
+[connection signal="pressed" from="Overview/ButtonContainer/btn_settlement" to="." method="ChangeScene" binds= ["SettlementScreen"]]
 [connection signal="pressed" from="Overview/ButtonContainer/btn_quit" to="." method="ChangeScene" binds= ["Quit"]]

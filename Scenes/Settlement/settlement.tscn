@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dewl21v2j0kfa"]
+[gd_scene load_steps=11 format=3 uid="uid://dewl21v2j0kfa"]
 
+[ext_resource type="Script" path="res://Scripts/SettlementRootScene.cs" id="1_73xnp"]
 [ext_resource type="Texture2D" uid="uid://dy8373ciugvlg" path="res://Placeholder/Assets/Clouds 1/1.png" id="1_hb2m0"]
 [ext_resource type="Texture2D" uid="uid://bpmdsmt7k5hwi" path="res://Placeholder/Assets/Clouds 1/2.png" id="2_durjc"]
 [ext_resource type="Texture2D" uid="uid://c2xymhfd868et" path="res://Placeholder/Assets/Clouds 1/3.png" id="3_21s43"]
@@ -390,6 +391,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_73xnp")
 
 [node name="Decoration" type="Node" parent="."]
 
@@ -448,3 +450,14 @@ layer_0/tile_data = PackedInt32Array(2424832, 131072, 0, 2490368, 131072, 1, 242
 [node name="CitizienContainer" type="Node2D" parent="."]
 
 [node name="Citizien" parent="CitizienContainer" instance=ExtResource("7_u81ty")]
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 27.0
+offset_top = 656.0
+offset_right = 192.0
+offset_bottom = 705.0
+text = "Back to Overview"
+
+[connection signal="pressed" from="Button" to="." method="ChangeScene" binds= ["MainOverview"]]

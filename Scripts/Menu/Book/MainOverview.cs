@@ -5,6 +5,7 @@ using System;
 
 public partial class MainOverview : Control
 {
+    [Export] PackedScene SettlementScene;
 
     [Export] private Label lbl_playername, lbl_money, lbl_exp, lbl_teamcount;
 
@@ -27,14 +28,11 @@ public partial class MainOverview : Control
     {
         switch(sceneName)
         {
-            case "Map":
-                DeskMenu.SwitchScene(GlobalStuff.MenuItems.Map);
-            break;
-            case "TeamManager":
-                DeskMenu.SwitchScene(GlobalStuff.MenuItems.TeamManager);
+            case "SettlementScreen":
+                SceneManager.Instance.SwitchScene(SettlementScene);
             break;
             case "Quit":
-                GetTree().Quit();
+                SceneManager.Instance.QuitApplication();
             break;
 
         }
