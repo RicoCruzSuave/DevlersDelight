@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="DevlersDelight"
-run/main_scene="res://Scenes/DeskMenu.tscn"
+run/main_scene="res://Scenes/GameManager.tscn"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalStuff="*res://Scripts/Classes/GlobalStuff.cs"
+SceneManager="*res://Scripts/Classes/SceneManager.cs"
 PlayerData="*res://Scripts/Classes/PlayerData.cs"
-DeskMenu="*res://Scripts/Menu/DeskMenu.cs"
 
 [display]
 
