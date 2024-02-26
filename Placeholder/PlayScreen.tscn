@@ -118,6 +118,9 @@ theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 2
 
+[node name="EntityCard" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" instance=ExtResource("3_hef5o")]
+layout_mode = 2
+
 [node name="EntityCard2" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
 layout_mode = 2
 nameLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
@@ -138,9 +141,6 @@ nameLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/Ent
 atkLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
 defLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
 healthbar = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
-
-[node name="EntityCard" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" instance=ExtResource("3_hef5o")]
-layout_mode = 2
 
 [node name="HBoxButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(366.5, 0)

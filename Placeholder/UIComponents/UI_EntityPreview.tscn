@@ -51,7 +51,6 @@ label_settings = SubResource("LabelSettings_kf0ql")
 
 [node name="HealthBar" type="TextureProgressBar" parent="Foreground/MarginContainer/VBoxContainer"]
 layout_mode = 2
-value = 9.0
 
 [node name="StatVBox" type="HBoxContainer" parent="Foreground/MarginContainer/VBoxContainer"]
 layout_mode = 2
