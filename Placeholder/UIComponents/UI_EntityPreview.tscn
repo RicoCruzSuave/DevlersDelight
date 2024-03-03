@@ -9,7 +9,7 @@
 line_spacing = 5.0
 font_size = 14
 
-[node name="EntityCard" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar")]
+[node name="EntityCard" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar", "icon")]
 custom_minimum_size = Vector2(150, 64)
 offset_right = 235.0
 offset_bottom = 89.0
@@ -19,6 +19,7 @@ nameLabel = NodePath("Foreground/MarginContainer/VBoxContainer/EntityName")
 atkLabel = NodePath("Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
 defLabel = NodePath("Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
 healthbar = NodePath("Foreground/MarginContainer/VBoxContainer/HealthBar")
+icon = NodePath("Foreground/EntityIcon")
 metadata/_edit_group_ = true
 
 [node name="Foreground" type="BoxContainer" parent="."]

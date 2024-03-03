@@ -1,6 +1,19 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://v5dv8hcxktbt"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://v5dv8hcxktbt"]
 
 [ext_resource type="Script" path="res://Scripts/Classes/Resources/EntityCard.cs" id="1_qvd5v"]
+
+[sub_resource type="Gradient" id="Gradient_nuim5"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.535714)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p0ec3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tpqag"]
+width = 128
+height = 128
+color_ramp = SubResource("Gradient_nuim5")
+noise = SubResource("FastNoiseLite_p0ec3")
 
 [resource]
 script = ExtResource("1_qvd5v")
@@ -10,4 +23,5 @@ Attack = 1
 Defense = 1
 Dexterity = 5
 Target = 0
+Texture = SubResource("NoiseTexture2D_tpqag")
 Color = Color(1, 1, 1, 1)

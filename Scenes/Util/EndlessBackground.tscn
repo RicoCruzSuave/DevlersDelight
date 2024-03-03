@@ -153,33 +153,28 @@ texture = SubResource("GradientTexture2D_3ueds")
 [node name="Rock(mid)1" type="Sprite2D" parent="Sequence"]
 top_level = true
 z_index = 1
-scale = Vector2(4, 6)
+scale = Vector2(4, 4)
 texture = ExtResource("5_mubax")
-offset = Vector2(0, -64)
 
 [node name="Rock(mid)2" type="Sprite2D" parent="Sequence"]
 top_level = true
-scale = Vector2(4, 6)
+scale = Vector2(4, 4)
 texture = ExtResource("4_cv22w")
-offset = Vector2(0, -64)
 
 [node name="Rock(mid)3" type="Sprite2D" parent="Sequence"]
 top_level = true
-scale = Vector2(4, 6)
+scale = Vector2(4, 4)
 texture = ExtResource("5_kcbdl")
-offset = Vector2(0, -64)
 
 [node name="Rock(mid)4" type="Sprite2D" parent="Sequence"]
 top_level = true
-scale = Vector2(4, 6)
+scale = Vector2(4, 4)
 texture = ExtResource("6_7hnyt")
-offset = Vector2(0, -64)
 
 [node name="Rock(mid)5" type="Sprite2D" parent="Sequence"]
 top_level = true
-scale = Vector2(4, 6)
+scale = Vector2(4, 4)
 texture = ExtResource("7_k3bwu")
-offset = Vector2(0, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

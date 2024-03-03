@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,19 +18,34 @@ public partial class PlayScreenUI : Control
 
     //Getting references to the Entity Display
     [Export] private Control playerPartyGridContainer, enemyPartyGridContainer;
+
+    [ExportGroup("DEBUG")]
+    [Export] private Godot.Collections.Array<Resource> playerTeam;
+    [Export] private Godot.Collections.Array<Resource> enemyTeam;
     public override void _Ready()
     {
         regionLabel.Text = RegionName != null ? RegionName : "Region Title";
         sectionLabel.Text = "[" + (SectionName != null ? SectionName : "Section-1") + "]";
         depthLabel.Text = "Current Depth: " + Depth.ToString("N1") + " m";
+        AssignPlayerTeam(playerTeam);
+        AssignEnemyTeam(enemyTeam);
     }
 
-    public void AssignPlayerTeam(List<EntityCard> team)
+    public void AssignPlayerTeam(Godot.Collections.Array<Resource> team)
     {
         var control_array = playerPartyGridContainer.GetChildren();
         for (int i = 0; i < team.Count; i++)
         {
-            ((UI_EntityCard)control_array[i]).entityCard = team[i];
+            ((UI_EntityCard)control_array[i]).setCard((EntityCard)team[i]);
+        }
+    }
+
+    public void AssignEnemyTeam(Godot.Collections.Array<Resource> team)
+    {
+        var control_array = enemyPartyGridContainer.GetChildren();
+        for (int i = 0; i < team.Count; i++)
+        {
+            ((UI_EntityCard)control_array[i]).setCard((EntityCard)team[i]);
         }
     }
 }

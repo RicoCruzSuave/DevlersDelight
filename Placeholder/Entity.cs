@@ -38,13 +38,18 @@ public partial class Entity : CharacterBody2D
         DexLabel.Text = CurrentDexterity.ToString();
         if (!IsFacingRight)
         {
-            var LabelScale = DexLabel.Scale;
-            LabelScale.X = -1;
-            DexLabel.Scale = LabelScale;
-            ProgressBar HealthBar = GetNode<ProgressBar>("ProgressBar");
-            var HealthBarScale = HealthBar.Scale;
-            HealthBarScale.X = 1;
-            HealthBar.Scale = HealthBarScale;
+            var spriteScale = animatedSprite.Scale;
+            spriteScale.X *= -1;
+            animatedSprite.Scale = spriteScale;
+
+
+            // var LabelScale = DexLabel.Scale;
+            // LabelScale.X = -1;
+            // DexLabel.Scale = LabelScale;
+            // ProgressBar HealthBar = GetNode<ProgressBar>("ProgressBar");
+            // var HealthBarScale = HealthBar.Scale;
+            // HealthBarScale.X = 1;
+            // HealthBar.Scale = HealthBarScale;
         }
     }
 

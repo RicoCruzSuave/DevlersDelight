@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bks2pkprcryru"]
+[gd_scene load_steps=12 format=3 uid="uid://bks2pkprcryru"]
 
 [ext_resource type="Script" path="res://Placeholder/PlayScreenUI.cs" id="1_sld7t"]
 [ext_resource type="PackedScene" uid="uid://deecnqkmxhcly" path="res://Placeholder/BattleScene.tscn" id="1_w48o3"]
+[ext_resource type="Resource" uid="uid://v5dv8hcxktbt" path="res://Resources/Creatures/Monsters/Cave_Rat.tres" id="2_7o2su"]
 [ext_resource type="Texture2D" uid="uid://cierlke4lra8i" path="res://Placeholder/Assets/awesomeCavePixelArt.png" id="2_hb87c"]
+[ext_resource type="Resource" uid="uid://dcvnu7yrw62sf" path="res://Resources/Creatures/Delvers/Amanda_Rockfort.tres" id="2_i8aj5"]
+[ext_resource type="Resource" uid="uid://dygl0qjypn2fp" path="res://Resources/Creatures/Delvers/Souvereign_Of_Dawn.tres" id="3_bpyk6"]
 [ext_resource type="PackedScene" uid="uid://br6ss0s25rn4h" path="res://Placeholder/UIComponents/UI_EntityPreview.tscn" id="3_hef5o"]
+[ext_resource type="Resource" uid="uid://cb02pua58byfq" path="res://Resources/Creatures/Delvers/Testsubject_Zero.tres" id="4_pc0ep"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_onrmc"]
 line_spacing = 0.0
@@ -15,7 +19,7 @@ font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytpau"]
 
-[node name="PlayScreen" type="Control" node_paths=PackedStringArray("regionLabel", "sectionLabel", "depthLabel")]
+[node name="PlayScreen" type="Control" node_paths=PackedStringArray("regionLabel", "sectionLabel", "depthLabel", "playerPartyGridContainer", "enemyPartyGridContainer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +33,10 @@ Depth = 150.0
 regionLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VLabelContainer/RegionLabel")
 sectionLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VLabelContainer/SectionLabel")
 depthLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VLabelContainer/DepthLabel")
+playerPartyGridContainer = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer")
+enemyPartyGridContainer = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer")
+playerTeam = [ExtResource("2_i8aj5"), ExtResource("4_pc0ep"), ExtResource("3_bpyk6")]
+enemyTeam = [ExtResource("2_7o2su"), ExtResource("2_7o2su"), ExtResource("2_7o2su"), ExtResource("2_7o2su")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -106,6 +114,7 @@ size = Vector2i(1100, 300)
 render_target_update_mode = 4
 
 [node name="BattleScene" parent="MarginContainer/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_w48o3")]
+position = Vector2(0, 1200)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -121,26 +130,14 @@ columns = 2
 [node name="EntityCard" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
 
-[node name="EntityCard2" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
+[node name="EntityCard2" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
-nameLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
-atkLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
-defLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
-healthbar = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
 
-[node name="EntityCard3" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
+[node name="EntityCard3" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
-nameLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
-atkLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
-defLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
-healthbar = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
 
-[node name="EntityCard4" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
+[node name="EntityCard4" parent="MarginContainer/VBoxContainer/HBoxContainer2/PlayerPartyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
-nameLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
-atkLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
-defLabel = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
-healthbar = NodePath("../EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
 
 [node name="HBoxButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(366.5, 0)
@@ -168,30 +165,14 @@ custom_minimum_size = Vector2(366.5, 250)
 layout_mode = 2
 columns = 2
 
-[node name="EntityCard2" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
+[node name="EntityCard" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
-nameLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
-atkLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
-defLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
-healthbar = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
 
-[node name="EntityCard3" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
+[node name="EntityCard2" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
-nameLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
-atkLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
-defLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
-healthbar = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
 
-[node name="EntityCard4" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
+[node name="EntityCard3" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
-nameLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
-atkLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
-defLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
-healthbar = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
 
-[node name="EntityCard" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" node_paths=PackedStringArray("nameLabel", "atkLabel", "defLabel", "healthbar") instance=ExtResource("3_hef5o")]
+[node name="EntityCard4" parent="MarginContainer/VBoxContainer/HBoxContainer2/EnemyGidContainer" instance=ExtResource("3_hef5o")]
 layout_mode = 2
-nameLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/EntityName")
-atkLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/ATK")
-defLabel = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/StatVBox/DEF")
-healthbar = NodePath("../../PlayerPartyGidContainer/EntityCard/Foreground/MarginContainer/VBoxContainer/HealthBar")
